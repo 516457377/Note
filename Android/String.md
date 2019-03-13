@@ -79,3 +79,5 @@ list(列表）和map(映射)。继承关系图====>
 * ⑶多线程操作字符串缓冲区 下操作⼤量数据 使⽤StringBuffer。
  String 特点: a 设计考虑, 当创建⼀个String对象时,假如此字符串值已经存在于常量池中,则不会创建⼀个新的对象,⽽是引⽤已经存在的对象。 b 效率问题 String的不可变的特点 确保hash码的唯⼀性 来保证String 在⼀些容器中可以放⼼的缓存，c 其次是保证了 String在java类 /库 当做参数时的 安全性
  StringBuffer特点: 线程安全 StringBuilder特点: ⾮线程安全
+ 
+ [源文件](https://github.com/516457377/Note/blob/master/Android/%5B%E8%B6%85%E9%95%BF%E6%B6%88%E6%81%AF%5D1.String%20%E4%B8%BA%E4%BB%80(1).pdf)
