@@ -5,6 +5,7 @@
      这样的问题，解决办法有两个。  
     - 在项目文件的`project.properties`加上`sdk.buildtools=25.0.2 //设置sdk使用的buildtools版本`就可以了。后面的值根据之前能用的修改。  
     - 第二个办法就是，直接替换sdk里面`27.0.2\lib\dx.jar`把这个替换成之前能用的`dx.jar`这样比较方便的就是不用每个项目都改一次；可能存在缺陷，具体未知。
+ ---
     
 2. 还在用落后的`Eclipse`的我，找demo的时候总会遇到一些as项目，as项目依赖包都是从`build.gradle`里面配置的，所以遇到需要从`as`搬到`Eclipse`就会发现我找不到libs；
 
