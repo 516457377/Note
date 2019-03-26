@@ -10,6 +10,6 @@
 
     解决办法 
     先从导包找到`import`定位到需要的libs包位置，然后从右键`Library Properties`就能看到在本地的jar文件的位置，找到ta然后导入`Eclipse`就ok。
-    > 注意：通常直接打开的jar文件都是src文件，是不能使用的，需要返回上一层从另外两个文件中找到，真正的jar文件。可以使用工具`jd-gui`查看如果能看到文件内容的就是可以用的，如果不能看到是*.java结尾的文件就是不能用的。
+    > 注意：通常直接打开的jar文件都是sources文件，是不能使用的，需要返回上一层从另外两个文件中找到，真正的jar文件。可以使用工具`jd-gui`查看如果能看到文件内容的就是可以用的，如果不能看到是*.java结尾的文件就是不能用的。
     [jd-gui 下载](https://github.com/516457377/Note/raw/master/Android/jd-gui.exe)  
     ![如图](/Android/TIM截图20190326115254.jpg)
