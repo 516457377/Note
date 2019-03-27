@@ -14,3 +14,18 @@
     > 注意：通常直接打开的jar文件都是sources文件，是不能使用的，需要返回上一层从另外两个文件中找到，真正的jar文件。可以使用工具`jd-gui`查看如果能看到文件内容的就是可以用的，如果不能看到是*.java结尾的文件就是不能用的。
     [jd-gui 下载](https://github.com/516457377/Note/raw/master/Android/jd-gui.exe)  
     ![如图](/Android/TIM截图20190326115254.jpg)
+---
+
+3. Android正则表达式使用：具体正则规则就自行百度  
+[在线校验工具](https://tool.lu/regex/) | [更多详细了解](https://blog.csdn.net/gdutxiaoxu/article/details/77800756)  
+[一个正则校验工具类](https://github.com/516457377/Note/blob/master/Tools/RegexUtil.java)
+
+        import java.util.regex.Matcher;  
+        import java.util.regex.Pattern;  
+        
+        String pattern = "(2(5[0-5]{1}|[0-4]\\d{1})|[0-1]?\\d{1,2})(\\.(2(5[0-5]{1}|[0-4]\\d{1})|[0-1]?\\d{1,2})){3}"; //正则规则（IP地址） 
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);  //str为输入验证的值 
+        System.out.println(m.matches());  //结果
+0. 
+
