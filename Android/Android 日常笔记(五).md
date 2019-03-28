@@ -27,5 +27,12 @@
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(str);  //str为输入验证的值 
         System.out.println(m.matches());  //结果
-0. 
+---
+        
+4. 银行卡号归属 [查询工具类](https://github.com/516457377/Note/blob/master/Tools/BankInfo.java)
+
+        String where = BankInfo.getNameOfBank("955888999912312312", 0);
+        //工商银行.牡丹银联理财金卡:
+        //ps：第二个参数为偏移位从第几位开始读，需要调整，暂时无用。
+0.
 
