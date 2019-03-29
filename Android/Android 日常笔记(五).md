@@ -38,6 +38,31 @@
         
 ---
 5. #### 关于Android Studio构建项目问题
+    开始用as，拉了一个项目下来发现构筑各种慢，build一次要半个小时还没搞定：  
+    ```Metadata of https://dl.google.com/dl/android/maven2/*****```  
+    报各种这样的错误。错误信息打开后也发现网址打不开，所以问题应该就是远程代码库的问题了。那么怎么解决呢，想办法更换代码库地址鸭，还记得之前自己创建代码库的时候，需要在
+    > 先在 build.gradle(Project:XXXX) 的 repositories 添加 maven { url 'https://jitpack.io' }
+
+    所以应该也是有办法更换的，个人猜测在`dependencies `添加了依赖库就会从`repositories`里面去寻找各种链接然后下载。
+    
+    网上找到了一些存储仓库[地址](https://blog.csdn.net/u011216417/article/details/73480899)：
+    
+        repositories {
+        maven { url "https://jitpack.io" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url 'http://maven.oschina.net/content/groups/public/' } 
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } 
+        maven { url "http://maven.springframework.org/release" } 
+        maven { url "http://maven.restlet.org" } 
+        maven { url "http://mirrors.ibiblio.org/maven2" }
+        maven {
+            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+        }
+        maven { url 'https://maven.fabric.io/public' }
+        mavenCentral()
+        jcenter()
+        google()
+        }
 
 0.
 
