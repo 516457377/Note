@@ -63,6 +63,21 @@
         jcenter()
         google()
         }
+6. #### Android Studio 踩坑指南：build 报 `Connection timed out: connect`
+    今天又拉了一个项目，起初报一个错误，猜测应该是gwf 搞的鬼。架上工具然后依然报错，想到了上一次问题找了些加了些网络仓库地址，但是这些地址大部分都是专门的仓库地址并不是镜像地址，依然会走之`google()`我就纳闷了。又找了很久。后来网上发现了一[**篇文章**](https://blog.csdn.net/rookie_or_beginner/article/details/80736986)  
+说是可能是gradle的问题，果断去把`gradle-wrapper.properties`里面的版本改了一下。重新构建果然ok。
+
+    ![图2](https://github.com/516457377/Note/blob/master/Android/img2.jpg)  
+    后面还遇到一个问题  
+    
+        Configuration on demand is not supported by the current version of
+        the Android Gradle plugin since you are using Gradle version 4.6 or
+        above. Suggestion: disable configuration on demand by setting
+        org.gradle.configureondemand=false in your gradle.properties file or
+        use a Gradle version less than 4.6.
+    
+    解决办法网上说有两个一个修改setting配置，我觉得这样对其他项目有影响。方法儿使用4.6以下的gradle。---》OK。  
+    附上gradle下载地址，可以查看有哪些版本：[HTTPS地址（慢）](https://services.gradle.org/distributions/) | [HTTP地址（快）](http://services.gradle.org/distributions/)
 
 0.
 
