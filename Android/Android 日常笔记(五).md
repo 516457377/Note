@@ -46,6 +46,7 @@
     所以应该也是有办法更换的，个人猜测在`dependencies `添加了依赖库就会从`repositories`里面去寻找各种链接然后下载。
     
     网上找到了一些存储仓库[地址](https://blog.csdn.net/u011216417/article/details/73480899)：
+    > 当然 jcenter在国内的话，基本没人使用了,当然作为android开发者24小时翻墙，是可以用得。。这里非常推荐使用阿里，速度，那叫一个快。。。千万别把这些一股脑地都放到自己的项目中。用不了，还耽误搜索时间。
     
         repositories {
         maven { url "https://jitpack.io" }
