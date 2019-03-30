@@ -59,6 +59,7 @@
             url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
         }
         maven { url 'https://maven.fabric.io/public' }
+        maven  {url "http://repo1.maven.org/maven2"}
         mavenCentral()
         jcenter()
         google()
