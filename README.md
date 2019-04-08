@@ -17,4 +17,4 @@
 ### 6.替换apk签名文件
 > 可以将别人的apk或者未签名的apk进行签名打包，使用很简单，但是需要有Key和Key的密码。  
 > 如果APk是已经签名的文件，用360解压出来删除掉`META-INF`文件夹然后重新打包成`ZIP`格式再将扩展名改为apk就成了未签名的apk文件了。  
-> [点击直接下载](https://github.com/516457377/Note/blob/master/Tools/360qianminggj.zip)
+> [点击直接下载](https://github.com/516457377/Note/raw/master/Tools/360qianminggj.zip)
