@@ -19,4 +19,6 @@
 > 如果APk是已经签名的文件，用360解压出来删除掉`META-INF`文件夹然后重新打包成`ZIP`格式再将扩展名改为apk就成了未签名的apk文件了。  
 > [点击直接下载](https://github.com/516457377/Note/raw/master/Tools/360qianminggj.zip)  
 ### 7. [Android 日常笔记(二)](https://github.com/516457377/Note/blob/master/Android/Android%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0(%E4%BA%8C).md)  
-> 依然没空研究新东西
+> 依然没空研究新东西  
+### 8. [Android 日常笔记(三)](https://github.com/516457377/Note/blob/master/Android/Android%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0(%E4%B8%89).md)  
+> 日常搬运  
