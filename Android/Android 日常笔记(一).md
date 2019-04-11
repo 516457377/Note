@@ -263,7 +263,7 @@ Java泛型中的标记符含义：
 #### 40.从电脑调试安装apk
 > adb install + apk
 
-![img15](/Android/Android日常笔记一/img15.png)
+![img15](/Android/Android日常笔记一/img15.jpeg)
 
 #### 41. 不定参数，其实是个数组
 ![img16](/Android/Android日常笔记一/img16.png)
