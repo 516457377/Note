@@ -15,7 +15,7 @@
      先从导包找到`import`定位到需要的libs包位置，然后从右键`Library Properties`就能看到在本地的jar文件的位置，找到ta然后导入`Eclipse`就ok。
          > 注意：通常直接打开的jar文件都是sources文件，是不能使用的，需要返回上一层从另外两个文件中找到，真正的jar文件。可以使用工具`jd-gui`查看如果能看到文件内容的就是可以用的，如果不能看到是*.java结尾的文件就是不能用的。
          [jd-gui 下载](https://github.com/516457377/Note/raw/master/Android/jd-gui.exe)  
-        ![如图](/Android/TIM截图20190326115254.jpg)
+        ![img1](/Android/Android日常笔记五/img1.jpg)
 ---
  3. #### Android正则表达式使用：具体正则规则就自行百度  
     [在线校验工具](https://tool.lu/regex/) | [更多详细了解](https://blog.csdn.net/gdutxiaoxu/article/details/77800756)  
@@ -71,7 +71,7 @@
     今天又拉了一个项目，起初报一个错误，猜测应该是gwf 搞的鬼。架上工具然后依然报错，想到了上一次问题找了些加了些网络仓库地址，但是这些地址大部分都是专门的仓库地址并不是镜像地址，依然会走之`google()`我就纳闷了。又找了很久。后来网上发现了一[**篇文章**](https://blog.csdn.net/rookie_or_beginner/article/details/80736986)  
 说是可能是gradle的问题，果断去把`gradle-wrapper.properties`里面的版本改了一下。重新构建果然ok。
 
-    ![图2](/Android/img2.jpg)  
+    ![img2](/Android/Android日常笔记五/img2.jpg)  
     后面还遇到一个问题  
     
         Configuration on demand is not supported by the current version of

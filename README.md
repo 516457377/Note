@@ -1,4 +1,7 @@
 # 目录导航
+## 快捷搜索方式 
+- 可以直接左上角搜索框输入你想查找的内容进行搜索
+- [点击这里](https://516457377.github.io/cuicui/) 进入搜索页
 
 ### 1. [杨大大总结String之十万个为什么。](https://github.com/516457377/Note/blob/master/Android/String.md)  
 > 感谢杨吉尔无私奉献。
@@ -9,7 +12,7 @@
 > 我是从这里面随便找的一个的[***地址***](https://rtsp-server.winsite.com/)，觉得这个挺好用的免安装。  
 > [下载地址](https://github.com/516457377/Note/raw/master/Tools/rtmp-rtsp-stream-client-java-master.zip)  
 ### 4. [Android 日常笔记(一)](https://github.com/516457377/Note/blob/master/Android/Android%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0(%E4%B8%80).md)  
-> 这两天比较忙还没空整理。  
+> 终于有空整理了。大家可以预览了。 
 ### 5.[Win10局域网共享](https://github.com/516457377/Note/blob/master/Win10/Win10%E5%85%B1%E4%BA%AB.png)  
 > ※ 还有再网络共享中心，打开共享关闭密码验证别搞漏了。  
 > 因为懒得搬运直接截图了。图大就不搬出来了，点进去看吧。   
