@@ -83,5 +83,19 @@
     解决办法网上说有两个一个修改setting配置，我觉得这样对其他项目有影响。方法儿使用4.6以下的gradle。---》OK。  
     附上gradle下载地址，可以查看有哪些版本：[HTTPS地址（慢）](https://services.gradle.org/distributions/) | [HTTP地址（快）](http://services.gradle.org/distributions/)
 
+---
+7. #### List 集合remove(location)后集合的位置变化
+    一个list集合`remove`其中一个元素之后，后面的元素会**自动向前移动**，因此可以使用循环，`get(0)`一直遍历。`Iterator`应该同理。
+---
+8. #### Activity之startActivityForResult
+    当启动一个Avtivity之后有时候希望能过监听到启动的对象的状态或者返回参数，可以使用startActivityForResult(Intent intent, int requestCode)方法，该方法会需要传入一个`int requestCode`请求码参数，该参数会在启动Act被销毁后传回`onActivityResult(int requestCode, int resultCode, Intent data)`中，用于验证。返回方法中另外两个参数`int resultCode, Intent data`需要在启动Act中设置。用于返回数据对应操作。  
+    在启动对象中通过`setResult(resultCode, intent);`方法设置返回参数。  
+---
+9. #### Android Studio中如何用Framework.jar替换SDK。
+    在Eclipse中我们可以通过这样  
+    ![img3](/Android/Android日常笔记五/img3.jpg)  
+    但是在as里面就有点迷茫了。通过搜索发现一个方法，使用了第一个操作就可以了。后面的[参考一下吧](https://segmentfault.com/q/1010000005885793)；|[参考二](https://blog.csdn.net/github_38336967/article/details/77504294)  
+    ![img4](/Android/Android日常笔记五/img4.jpg)
+    
 0.
 
