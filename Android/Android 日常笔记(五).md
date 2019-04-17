@@ -90,8 +90,9 @@
 8. #### Activity之startActivityForResult
     当启动一个Avtivity之后有时候希望能过监听到启动的对象的状态或者返回参数，可以使用startActivityForResult(Intent intent, int requestCode)方法，该方法会需要传入一个`int requestCode`请求码参数，该参数会在启动Act被销毁后传回`onActivityResult(int requestCode, int resultCode, Intent data)`中，用于验证。返回方法中另外两个参数`int resultCode, Intent data`需要在启动Act中设置。用于返回数据对应操作。  
     在启动对象中通过`setResult(resultCode, intent);`方法设置返回参数。  
+> 注意请求码requestCode不能大于65536，同时不能为负数。否则无效。
 ---
-9. #### Android Studio中如何用Framework.jar替换SDK。
+9. #### Android Studio中如何用Framework.jar替换SDK。修改jar优先级
     在Eclipse中我们可以通过这样  
     ![img3](/Android/Android日常笔记五/img3.jpg)  
     但是在as里面就有点迷茫了。通过搜索发现一个方法，使用了第一个操作就可以了。后面的[参考一下吧](https://segmentfault.com/q/1010000005885793)；|[参考二](https://blog.csdn.net/github_38336967/article/details/77504294)  
