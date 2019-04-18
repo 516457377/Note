@@ -97,6 +97,17 @@
     ![img3](/Android/Android日常笔记五/img3.jpg)  
     但是在as里面就有点迷茫了。通过搜索发现一个方法，使用了第一个操作就可以了。后面的[参考一下吧](https://segmentfault.com/q/1010000005885793)；|[参考二](https://blog.csdn.net/github_38336967/article/details/77504294)  
     ![img4](/Android/Android日常笔记五/img4.jpg)
+---
+10. #### Android Overscan，设置屏边距。
+    >什么是overscan？
+
+    对于电视机，有一个Overscan的概念，如下图，所谓Overscan区域，就是电视机屏幕四周某些不可见的区域，这是电视机的特性。  
+    具体设置方法可以在串口工具或者`adb shell`不需要su权限。估计手机的单手模式也是这个。
+    
+        wm overscan  10，20，30，40//左上右下  
+    即可让周围自动设置边距，但是遇到问题就是播放视频的时候。会直接全屏。导致想要的效果不佳。解决办法发愁中。
+    [参考内容1](https://www.cnblogs.com/all-for-fiona/p/4054527.html)|[参考内容2](https://blog.csdn.net/xueshanhaizi/article/details/69383118)
+
     
 0.
 
