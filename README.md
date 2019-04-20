@@ -33,6 +33,7 @@
 
 > 可以将别人的apk或者未签名的apk进行签名打包，使用很简单，但是需要有Key和Key的密码。
 > 如果APk是已经签名的文件，用360解压出来删除掉`META-INF`文件夹然后重新打包成`ZIP`格式再将扩展名改为apk就成了未签名的apk文件了。
+> 
 > [点击直接下载](https://github.com/516457377/Note/raw/master/Tools/360qianminggj.zip)
 
 ### 7. [Android 日常笔记(二)](https://github.com/516457377/Note/blob/master/Android/Android%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0(%E4%BA%8C).md)
@@ -43,7 +44,7 @@
 
 > 日常搬运
 
-### 9. [再次开新坑。](/Note/Android/will_do.md)
+### 9. [再次开新坑。](/Android/will_do.md)
 
 > 本来以为每天整理一点知识很充足，但是忙起来才发现。。莫得时间。这儿记录一些没来得及整理的资料。
 
