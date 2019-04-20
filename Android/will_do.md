@@ -14,3 +14,7 @@
 *   [资料二](https://blog.csdn.net/stzy00/article/details/43988213)
 *   [资料三](https://blog.csdn.net/taowuhua0505/article/details/80913550)
 *   [资料四](https://blog.csdn.net/xyq046463/article/details/54891427)
+
+    #### 4.Android 横批竖屏，傻傻分不清楚LANDSCAPE、PORTRAIT
+
+    [参考](https://www.cnblogs.com/gccbuaa/p/6708317.html)
