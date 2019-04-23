@@ -1,7 +1,7 @@
 ## Android 日常笔记(五)
 
 1. #### Eclipse 更新SDK编译报错问题
- 
+
      还在用Eclipse的我偶尔下载一个项目需要打开一下as，然后更新个sdk。再移到Eclipse里面，如果更新了sdk.buildtools 就会可能出现  
         ```Failed to load E:\SDK\android-sdk-windows\build-tools\27.0.2\lib\dx.jar```  
      这样的问题，解决办法有两个。  
@@ -9,7 +9,7 @@
     - 第二个办法就是，直接替换sdk里面`27.0.2\lib\dx.jar`把这个替换成之前能用的`dx.jar`这样比较方便的就是不用每个项目都改一次；可能存在缺陷，具体 未知。
 ---
 2. #### 将Android Studio 中的libs搬到Eclipse
- 
+
      还在用落后的`Eclipse`的我，找demo的时候总会遇到一些as项目，as项目依赖包都是从`build.gradle`里面配置的，所以遇到需要从`as`搬到`Eclipse`就会发现我找不到libs；  
      解决办法  
      先从导包找到`import`定位到需要的libs包位置，然后从右键`Library Properties`就能看到在本地的jar文件的位置，找到ta然后导入`Eclipse`就ok。
@@ -35,7 +35,7 @@
         String where = BankInfo.getNameOfBank("955888999912312312", 0);
         //工商银行.牡丹银联理财金卡:
         //ps：第二个参数为偏移位从第几位开始读，需要调整，暂时无用。
-        
+    
 ---
 5. #### 关于Android Studio构建项目问题
     开始用as，拉了一个项目下来发现构筑各种慢，build一次要半个小时还没搞定：  
@@ -65,7 +65,7 @@
         jcenter()
         google()
         }
-        
+    
 ---
 6. #### Android Studio 踩坑指南：build 报 `Connection timed out: connect`
     今天又拉了一个项目，起初报一个错误，猜测应该是gwf 搞的鬼。架上工具然后依然报错，想到了上一次问题找了些加了些网络仓库地址，但是这些地址大部分都是专门的仓库地址并不是镜像地址，依然会走之`google()`我就纳闷了。又找了很久。后来网上发现了一[**篇文章**](https://blog.csdn.net/rookie_or_beginner/article/details/80736986)  
@@ -109,5 +109,6 @@
     [参考内容1](https://www.cnblogs.com/all-for-fiona/p/4054527.html)|[参考内容2](https://blog.csdn.net/xueshanhaizi/article/details/69383118)
 
     
+
 0.
 
