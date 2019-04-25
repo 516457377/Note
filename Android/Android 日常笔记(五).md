@@ -106,9 +106,77 @@
     
         wm overscan  10，20，30，40//左上右下  
     即可让周围自动设置边距，但是遇到问题就是播放视频的时候。会直接全屏。导致想要的效果不佳。解决办法发愁中。
-    [参考内容1](https://www.cnblogs.com/all-for-fiona/p/4054527.html)|[参考内容2](https://blog.csdn.net/xueshanhaizi/article/details/69383118)
+    [参考内容1](https://www.cnblogs.com/all-for-fiona/p/4054527.html)|[参考内容2](https://blog.csdn.net/xueshanhaizi/article/details/69383118)  
 
+    ---
     
+11. #### Ping检测IP地址或网址是否可以连通。
+
+    * 回调接口：
+
+    ```java
+    /**返回结果*/
+    interface PingListener {
+        /**@param success return true is can connect,else disconnect*/
+        void onResult(boolean success);
+    }
+    ```
+
+    * 主方法：
+
+      ```java
+      /**
+       * 通过ip ping 来判断ip是否通
+       * @param ip 地址192.168.1.1 or www.baidu.com
+       * @param showDialog 是否显示dialog阻止其他操作
+       * @param listener 返回结果。
+       */
+      private void judgeTheConnect(final String ip,boolean showDialog,@Nullable final PingListener listener) {
+          final ProgressDialog waitPro = new ProgressDialog(this);
+          waitPro.setIndeterminate(true);
+          waitPro.setMessage("wait..");
+          waitPro.setCanceledOnTouchOutside(false);
+          if (showDialog) {
+              waitPro.show();
+          }
+          new Thread(new Runnable() {
+              public void run() {
+                  boolean result = false;
+                  try {
+                      if (ip != null) {
+                          // 代表ping 3 次 超时时间为10秒
+                          Process p = Runtime.getRuntime().exec("ping -c 3 -w 10 " + ip);// ping3次
+                          int status = p.waitFor();
+                          if (status == 0) {
+                              // 代表成功
+                              result = true;
+                          } else {
+                              // 代表失败
+                              result = false;
+                          }
+                      } else {
+                          // IP为空
+                          result = false;
+                      }
+                  } catch (Exception e) {
+                      // LogUtil.e(aaa, e.getMessage());
+                      result = false;
+                  }
+                  waitPro.dismiss();
+                  if (null != listener) {
+                      final boolean re = result;
+                      runOnUiThread(new Runnable() {//转到UI线程
+                          public void run() {
+                              listener.onResult(re);
+                          }
+                      });
+                  }
+              }
+          }).start();
+      }
+      ```
+
+---
 
 0.
 
