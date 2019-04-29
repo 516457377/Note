@@ -15,6 +15,14 @@
 *   [资料三](https://blog.csdn.net/taowuhua0505/article/details/80913550)
 *   [资料四](https://blog.csdn.net/xyq046463/article/details/54891427)
 
-    #### 4.Android 横批竖屏，傻傻分不清楚LANDSCAPE、PORTRAIT
+#### 4.Android 横批竖屏，傻傻分不清楚LANDSCAPE、PORTRAIT
 
     [参考](https://www.cnblogs.com/gccbuaa/p/6708317.html)
+
+#### 5. Android 获取本机IP地址，WIFI、网口、数据等。
+
+* [搜索](https://www.baidu.com/s?wd=Android%20%E8%8E%B7%E5%8F%96ip%E5%9C%B0%E5%9D%80&rsv_spt=1&rsv_iqid=0xbca2f201000de981&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=request_18_pg&rsv_enter=1&rsv_sug3=22&rsv_sug1=19&rsv_sug7=100&rsv_t=ce82PQvDH%2B5yV%2FNL1nubGXBqc0TSyTL57%2FNcE5P%2FAQaWLbKQduZt0xVZn34mNFGjn3QWUg&rsv_sug2=0&inputT=6083&rsv_sug4=6083)
+
+* [资料](https://www.cnblogs.com/jxust-jiege666/p/8168149.html)
+
+#### 6. [小白也能搭建网站？如何在1分钟内，免费搭建自己的JPress网站？](https://mp.weixin.qq.com/s/0lcde8-66IGGQ20o1qXMrQ)
