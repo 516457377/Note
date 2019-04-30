@@ -26,3 +26,12 @@
 * [资料](https://www.cnblogs.com/jxust-jiege666/p/8168149.html)
 
 #### 6. [小白也能搭建网站？如何在1分钟内，免费搭建自己的JPress网站？](https://mp.weixin.qq.com/s/0lcde8-66IGGQ20o1qXMrQ)
+
+#### 7. android_serialport_api串口通讯，奇偶校验jni修改。
+
+[让android_serialport_api支持奇偶校验、数据位、停止位等参数](https://blog.csdn.net/lny1053452188/article/details/81382711)
+
+[让android_serialport_api支持奇偶校验、数据位、停止位等参数](https://blog.csdn.net/linqiang_csdn/article/details/79537093)
+[串口通信校验方式（even，odd，space，mark](https://blog.csdn.net/u010963246/article/details/47171521)
+[串口参数详解：波特率，数据位，停止位，奇偶校验位](https://blog.csdn.net/guomutian911/article/details/47044603)
+

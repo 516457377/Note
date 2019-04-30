@@ -216,12 +216,17 @@ dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 
 * 动态注册广播（这个有待验证，我自己测试静态注册也是可以启动起来的）
 
+---
 
+#### 13. Eclipse 中编译Jni生成so文件。
 
+先列举一些参考资料，排序有先后；
+
+* [eclipse配置外部工具利用javah编译生成头文件](https://blog.csdn.net/henren555/article/details/9324849)
+* [在eclipse中android NDK开发环境的搭建](https://blog.csdn.net/lovexieyuan520/article/details/43212333) |（我是没有配置这个的）
+* [eclipse android jni 开发，so库编译](https://blog.csdn.net/wjb201314/article/details/74225630)
+* [android — NDK生成so文件](https://blog.csdn.net/laczff21/article/details/7542236)
+* [参考资料](https://blog.csdn.net/caoxi_/article/details/52182897)
+* AS
 
 0.
-
-
-```
-
-```
