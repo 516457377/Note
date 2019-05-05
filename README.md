@@ -49,7 +49,7 @@
 
 > 这些在工作中遇到的问题，一般可能用不上的技术，描述也不专业，看看就好。
 
-### 12. [Android 日常笔记(四)](/Android/Android 日常笔记(四).md)
+### 12. [Android 日常笔记(四)](https://github.com/516457377/Note/blob/master/Android/Android%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0(%E5%9B%9B).md)
 > 五一回来，不知道为啥没休息好，犯困，找点事整理下。
 > 这一篇没写多少  
 
