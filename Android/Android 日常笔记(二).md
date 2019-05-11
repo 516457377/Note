@@ -17,7 +17,7 @@ params.setBodyEntity(new StringEntity(shuju.toString()));
 
 ![img2](/Android/Android日常笔记二/img2.png)
 
-
+---
 #### 2. AsyncTask 了解
 
 参考：<http://blog.csdn.net/liuhe688/article/details/6532519>
@@ -46,8 +46,7 @@ params.setBodyEntity(new StringEntity(shuju.toString()));
 
 5. 一个任务实例只能执行一次，如果执行第二次将会抛出异常。
 
-
-
+---
 #### 3. [**getIdentifier()**](http://www.cnblogs.com/mybkn/archive/2012/05/30/2526375.html)
 
 项目中一问题，从获取图片名称后，然后调用图片。直接用R.drawable.?无法调用。解决：
@@ -80,14 +79,14 @@ eg:getResources().getIdentifier("mymediacontroller","layout",getContext().getPac
 getResources().getIdentifier("mediacontroller_top_back", "id",context.getPackageName())
 ```
 
-
+---
 #### 4. **ArrayList.clone();**
 
 **ArrayList.clone();为真正的复制**
 
 **ArrayList=ArrayList2；这样只是复制一个地址，当ArrayList中的一个数据发生改变，ArrayList2也回随着改变。**
 
-
+---
 #### 5. 长亮不熄屏
 ```java
 PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
@@ -98,8 +97,7 @@ mWakeLock.acquire();
 ```
 需要添加权限：<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-
-
+---
 #### 6. 返回桌面跳转
 ```java
 	Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -111,25 +109,22 @@ mWakeLock.acquire();
     this.startActivity(intent);
 ```
 
-
+---
 #### 7. Android 5.0之后启动server只能用显示启动不能用隐示启动
 
 ![img3](/Android/Android日常笔记二/img3.png)
 
-
-
+---
 #### 8. ViewPager发现setOnPageChangeListener的方法居然过期了，而且AS编译不通过了，最后查了一下原来把set换成add了
 
-
-
+---
 #### 9. 关于java重载函数，参数为null时，调用的处理。（精确性原则）
 
 [java的多态——null参数会调用哪个方法？](http://blog.csdn.net/zchuanzhao/article/details/48805561)
 
 ![img4](/Android/Android日常笔记二/img4.png)
 
-
-
+---
 #### 10. 将Xml里面的array转换成list：
 ```java
 ArrayList<String> list = new ArrayList<String>(
@@ -140,8 +135,7 @@ Arrays.asList(getResources().getStringArray(R.array.child1)));
 
 
 
-
-
+---
 #### 11. 打开assets文件并且返回String：
 ```java
 private String openAssets(String s) {
@@ -165,16 +159,15 @@ private String openAssets(String s) {
     }
 ```
 
-
+---
 #### 12. [android 使用Notification弹多个通知时，点击跳转intent取值时总是最后一个](http://blog.csdn.net/iwuyuetian/article/details/51207356)
 
-
+---
 #### 13. Android textview里面添加图片：
 
 [Android TextView里直接显示图片的三种方法](http://blog.csdn.net/yanzi1225627/article/details/24590029)
 
-
-
+---
 #### 14. values-styles常用方法
 
 <item name="android:windowNoTitle">true</item>//设置不显示标题栏title
@@ -199,8 +192,7 @@ android:navigationBarColor//导航栏颜色
 
 或者透明状态为关闭会生效
 
-
-
+---
 #### 15. 切换语言、横竖屏幕切换等导致的问题，资源切换重新加载activity。
 
 问题如图：
@@ -221,212 +213,151 @@ android:navigationBarColor//导航栏颜色
 
 当添加了对应事件之后，触发将不会在重新创建而是直接执行`onConfigurationChanged(Configuration newConfig)`方法，所以如果有需要改动的数据可以在里面手动改变。参考：[Android Configuration change引发的问题及解决方法](http://blog.csdn.net/aliaooooo/article/details/23606179)
 
-
-
-16. Gson解析json
+---
+#### 16. Gson解析json
 
 gson常规用法，mData = gson.fromJson(jsonstr, MyData.class);
 
 使用工具类：
 
-![DataFactory.java](D:/sofe/YoudaoNote/Note/516457377@qq.com/99b13a68d23747519bec55b811646699/attachment.png)
+[DataFactory.java](/Android/Android日常笔记二/DataFactory.java)
 
+使用方法：
 
+- 普通json：
+```java
+	beanobj beanob = (beanobj) DataFactory.getInstanceByJson(beanobj.class,"{\"text\":1}");
 
-普通json：
+    System.out.println("o:" + beanob.getText());
+```
+![img](/Android/Android日常笔记二/img8.png)
 
-beanobj beanob = (beanobj) DataFactory.getInstanceByJson(beanobj.class,
+- 数组json：
+```java
+        ArrayList<Beanlist> arrayList = DataFactory.jsonToArrayList("[{\"text\":1}]", Beanlist.class);
+        System.out.println("L:" + arrayList.get(0).getText());
+```
+![img](/Android/Android日常笔记二/img9.png)
 
-​                "{\"text\":1}");
-
-​        System.out.println("o:" + beanob.getText());
-
-![img](D:/sofe/YoudaoNote/Note/516457377@qq.com/90c052ccdfdd47179cf274f0b9338a7b/clipboard.png)
-
-数组json：
-
-​        ArrayList<Beanlist> arrayList = DataFactory.jsonToArrayList(
-
-​                "[{\"text\":1}]", Beanlist.class);
-
-​        System.out.println("L:" + arrayList.get(0).getText());
-
-![img](D:/sofe/YoudaoNote/Note/516457377@qq.com/f560f9bbeb1c422dbafa1f02ccabb5a3/clipboard.png)
-
-
-
-
-
-17. Eclipse 当选中一个文件点击run还是运行上次运行的项目问题：
+---
+#### 17. Eclipse 当选中一个文件点击run还是运行上次运行的项目问题：
 
 windows->preferences->搜索栏打上launching，然后在Launch Operation，选中Launch the associated project就行了
 
+---
+#### 18. Android中对view使用旋转setRotation属性时候默认是以中心旋转，View.setPivotX和View.setPivotY方法可以手动设置中心点。起点为view左上角（0，0）；
 
+---
+#### 19. Eclipse编辑快速输入：
+Windown -->Preferences --> java --> Editor --> templates
 
-18. Android中对view使用旋转setRotation属性时候默认是以中心旋转，View.setPivotX和View.setPivotY方法可以手动设置中心点。起点为view左上角（0，0）；
-
-
-
-19. Eclipse编辑快速输入：java-Editor-templates
-
-
-
-20. @Override
+---
+#### 20. 自定义View宽高定测
+```java
+@Override
 
 ​    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
 ​        int desiredWidth = width;
-
 ​        int desiredHeight = height;
-
-
-
 ​        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-
 ​        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-
 ​        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
 ​        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
-
-
 ​        int width;
-
 ​        int height;
 
-
-
 ​        // Measure Width
-
 ​        if (widthMode == MeasureSpec.EXACTLY) {
-
 ​            // Must be this size
-
 ​            width = widthSize;
-
 ​        } else if (widthMode == MeasureSpec.AT_MOST) {
-
 ​            // Can't be bigger than...
-
 ​            width = Math.min(desiredWidth, widthSize);
-
 ​        } else {
-
 ​            // Be whatever you want
-
 ​            width = desiredWidth;
-
 ​        }
-
-
 
 ​        // Measure Height
-
 ​        if (heightMode == MeasureSpec.EXACTLY) {
-
 ​            // Must be this size
-
 ​            height = heightSize;
-
 ​        } else if (heightMode == MeasureSpec.AT_MOST) {
-
 ​            // Can't be bigger than...
-
 ​            height = Math.min(desiredHeight, heightSize);
-
 ​        } else {
-
 ​            // Be whatever you want
-
 ​            height = desiredHeight;
-
 ​        }
 
-
-
 ​        // MUST CALL THIS
-
 ​        setMeasuredDimension(width, height);
-
 ​    }
+```
 
-
-
-21. java 给View添加xml属性
-
+---
+#### 21. java 给View添加xml属性(设置View属性)
+> 本例为代码创建view，若修改现有的view可以用`v.getLayoutParams();`获取。
+```java
 RelativeLayout.LayoutParams rlp=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);  
-
 ​        rlp.addRule(RelativeLayout.CENTER_IN_PARENT);//addRule参数对应RelativeLayout XML布局的属性  
-
 ​        relativeLayout.addView(progressBar,rlp); 
-
 //Gravity.CENTER
+```
+---
+#### 22. android .9图显示区域问题。
+按理说左上是必选，右下是可选，左上控制拉伸，右下控制显示区域，如果不设置右下，左上区域也作用于显示（右下）区域。
 
+---
+#### 23. View创建过程图：
 
+![img10](/Android/Android日常笔记二/img10.jpeg)
 
-22. android .9图显示区域问题。按理说左上是必选，右下是可选，左上控制拉伸，右下控制显示区域，如果不设置右下，左上区域也作用于显示（右下）区域。
-
-
-
-23. View创建过程图：
-
-![img](D:/sofe/YoudaoNote/Note/516457377@qq.com/1b22847c55ad4193807ff2a917cd8332/y3rw%29q7y8yc.jpeg)
-
-
-
-
-
-24. 在Oncreate里面获取控件宽高，参考[**Android 获取控件的宽和高**](http://blog.csdn.net/johnny901114/article/details/7839512)
+---
+#### 24. 在Oncreate里面获取控件宽高，参考[**Android 获取控件的宽和高**](http://blog.csdn.net/johnny901114/article/details/7839512)
 
 例一：
-
-- 1. **int** w = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);  
-  2. **int** h = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);  
-  3. imageView.measure(w, h);  
-  4. **int** height =imageView.getMeasuredHeight();  
-  5. **int** width =imageView.getMeasuredWidth();  
-  6. textView.append("\n"+height+","+width);  
-
-
-
-25. dp转换px
-
+```java
+ int w = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);  
+ int h = View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);  
+ imageView.measure(w, h);  
+ int height =imageView.getMeasuredHeight();  
+ int width =imageView.getMeasuredWidth();  
+ textView.append("\n"+height+","+width);  
+```
+---
+#### 25. dp转换px
+```jvva
 private int dp2px(Context context, float dp) {
-
 ​        final float scale = context.getResources().getDisplayMetrics().density;
-
 ​        return (int) (dp * scale + 0.5f);
-
 ​    }
-
-
-
-26. Math开多次方
-
+```
+---
+#### 26. Math开多次方
+```java
 double x=27,y=3;
 
 double z = Math.pow(x,1.0/y); //x为被开方的数，1.0/y为要开方的次数
 
 System.out.println("27被开3次方为："+z);
-
-27. 日常坑1：openFileOutput方法生成img文件不能直接用文件管理器在data/data/包名 里面打开，会打不开。。或者打开显示不出来。。复制出来就好了。
+```
+---
+#### 27. 日常坑1：openFileOutput方法生成img文件不能直接用文件管理器在data/data/包名 里面打开，会打不开。。或者打开显示不出来。。复制出来就好了。
 
 坑2： 
 
-![img](D:/sofe/YoudaoNote/Note/516457377@qq.com/4aceb5aa9f454366ad14883846b26799/i3%7Baiih6jdnnm%7E4%5Bv%29%7E%7Bg6b.png)
-
-
+![img11](/Android/Android日常笔记二/img11.png)
 
 为什么在try里面声明的BufferedWriter用write方法写不进去数据也没用抛出异常。但是在try外面声明然后调用write方法就可以写入数据？
 
 原因：关闭流的顺序错误了。要先开的后关。如果先开的流先关闭了，会导致后面开的流失效。
 
-28. /**[Java日期转换SimpleDateFormat格式大全](http://blog.csdn.net/yeshanghai_c/article/details/8974063)
+---
+#### 28. /**[Java日期转换SimpleDateFormat格式大全](http://blog.csdn.net/yeshanghai_c/article/details/8974063)
 
   SimpleDateFormat函数语法：
 
-  
 
   G 年代标志符
 
@@ -468,13 +399,8 @@ System.out.println("27被开3次方为："+z);
 
  */
 
+---
+#### 29. requestFocus获取焦点的只能有一个控件，如果是组合控件，只是外层获取了焦点内部控件也不会有焦点。
 
-
-29. requestFocus获取焦点的只能有一个控件，如果是组合控件，只是外层获取了焦点内部控件也不会有焦点。
-
-
-
-30. 不要在一个类里面多次给静态变量赋值，静态变量在当前进程被终止之前不会被回收。
-```
-
-```
+---
+#### 30. 不要在一个类里面多次给静态变量赋值，静态变量在当前进程被终止之前不会被回收。
