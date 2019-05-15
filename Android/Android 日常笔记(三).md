@@ -8,53 +8,51 @@
 
 #### 2. 在ScrollView/NestedScrollView里面当滚动条不满足全屏需要在屏幕底部添加控件时，会往上移动。
 
+[参考：](https://blog.csdn.net/hellokittylin/article/details/47321753)
 添加`android:fillViewport="true"`可以使得里面的ListView等可扩展控件铺满全屏，当超过屏幕时候没有作用。
 ![img2](/Android/Android日常笔记三/img2.png)
 
-[参考：](https://blog.csdn.net/hellokittylin/article/details/47321753)
-
+---
 
 #### 3. Android tips（八）-->AS打包apk，aar，jar包：位置：module/build/intermediates/bundles/release/classes.jar
 
 ​             <http://www.w2bc.com/article/161084>
 
+---
+#### 4. XML中 “？”引用主题属性，当您使用这个标记，你所提供的资源名必须能够在主题属性中找到，因为资源工具认为这个资源属性是被期望得到的，您不需要明确的指出它的类型
+>（?android:attr/android:textDisabledColor）。
 
+---
+#### 5. Activity设置全屏
+```java
+//设置无标题  
+​     requestWindowFeature(Window.FEATURE_NO_TITLE);  
+//设置全屏  
+ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);  
+```
+```xml
+<!-- 隐藏状态栏 -->  
+<item name="android:windowFullscreen">true</item>   
+<!-- 隐藏标题栏 -->    
+<item name="android:windowNoTitle">true</item>
+```
 
-4.   “？”引用主题属性，当您使用这个标记，你所提供的资源名必须能够在主题属性中找到，因为资源工具认为这个资源属性是被期望得到的，您不需要明确的指出它的类型（?android:attr/android:textDisabledColor）。
-
-
-
-5. ​    //设置无标题  
-
-​          requestWindowFeature(Window.FEATURE_NO_TITLE);  
-
-​       	  //设置全屏  
-
-   	  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
-
-​          WindowManager.LayoutParams.FLAG_FULLSCREEN);  
-
-<!-- 隐藏状态栏 -->  <item name="android:windowFullscreen">true</item>     <!-- 隐藏标题栏 -->     <item name="android:windowNoTitle">true</item>
-
-
-
-6.  [**Android Studio常见错误之：Rendering Problems/The following classes could not be instantiated**](http://blog.csdn.net/u012719153/article/details/46040711)  资源文件显示不出来
-
- 	<http://blog.csdn.net/u012719153/article/details/46040711>
+---
+#### 6.  [**Android Studio常见错误之：Rendering Problems/The following classes could not be instantiated**](http://blog.csdn.net/u012719153/article/details/46040711)  
+AS预览资源文件显示不出来
+<http://blog.csdn.net/u012719153/article/details/46040711>
 
 解决办法：
+```xml
+打开res/values/目录下styles.xml文件。
+把：<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+修改为： <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+```
 
-打开es/values/目录下styles.xml文件。
+---
+#### 7. 数据流写后同步操作
 
-把：<**style** **name=****"AppTheme"** **parent=****"Theme.AppCompat.Light.DarkActionBar"**>
-
-修改为： <**style** **name=****"AppTheme"** 			**parent=****"Base.Theme.AppCompat.Light.DarkActionBar"**>
-
-
-
-7. 
-
-![img](D:/sofe/YoudaoNote/Note/516457377@qq.com/62d9cb18b1614a4b8847c7c115a9e529/clipboard.png)
+![img3](/Android/Android日常笔记三/img3.png)
 
 fo.flush();
 
@@ -62,17 +60,14 @@ fo.getFD().sync();
 
 可以让拷贝完毕文件后迅速将缓存写入设备。这样即使马上拔除设备也不会导致copy失败。
 
-8.  如果你的textview宽度大于了maxEms的值
-
-
+---
+#### 8.  如果你的textview宽度大于了maxEms的值
 
 那么maxEms会为textview的最大宽度
-
 <http://blog.csdn.net/beiminglei/article/details/9317997>
 
-
-
-9. @Override
+---
+#### 9. @Override
 
 ​    protected void onNewIntent(Intent intent)  
 
