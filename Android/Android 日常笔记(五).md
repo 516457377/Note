@@ -144,7 +144,7 @@ interface PingListener {
 
 * 主方法：
 
-  ```java
+```java
   /**
    * 通过ip ping 来判断ip是否通
    * @param ip 地址192.168.1.1 or www.baidu.com
@@ -194,7 +194,8 @@ interface PingListener {
           }
       }).start();
   }
-  ```
+```
+
 ---
 
 #### 12. Android 在服务`Service`或广播`BroadcastReceiver `弹Dialog。
@@ -229,4 +230,10 @@ dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 * [参考资料](https://blog.csdn.net/caoxi_/article/details/52182897)
 * AS
 
-0.
+---
+#### 14. Android 签名文件JKS《---》KEYSTORE 互转
+
+[参考资料：Android jks文件签名转换keystore文件签名](https://blog.csdn.net/ONLYMETAGAIN/article/details/78781316)
+[参考资料：P12,JKS,CER,RFX,PEM转换速记](https://blog.csdn.net/ONLYMETAGAIN/article/details/78782056)
+
+---
