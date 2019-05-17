@@ -237,3 +237,52 @@ dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 [参考资料：P12,JKS,CER,RFX,PEM转换速记](https://blog.csdn.net/ONLYMETAGAIN/article/details/78782056)
 
 ---
+#### 15.Android 获取蓝牙mac地址。
+> 这个看起来就是个烂大街的方法，百度随便找，而且也基本上用不到的。凑个数吧。  
+> [参考地址：Android获取本机蓝牙地址](https://blog.csdn.net/chengjiamei/article/details/78833281)  
+从Android6.0开始，通过BluetoothAdapter.getDefaultAdapter().getAddress()获取的地址是一个固定值02:00:00:00:00:00，部分从低版本升级到6.0的手机也还是可以获取真实的MAC地址的。下面通过反射的方式
+
+获取蓝牙地址：
+
+```java
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import android.bluetooth.BluetoothAdapter;
+
+public static String getBtAddressByReflection() {
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        Field field = null;
+        try {
+            field = BluetoothAdapter.class.getDeclaredField("mService");
+            field.setAccessible(true);
+            Object bluetoothManagerService = field.get(bluetoothAdapter);
+            if (bluetoothManagerService == null) {
+                return null;
+            }
+            Method method = bluetoothManagerService.getClass().getMethod("getAddress");
+            if(method != null) {
+               Object obj = method.invoke(bluetoothManagerService);
+               if(obj != null) {
+                    return obj.toString();
+               }
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+```
+记得加权限
+```xml
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+```
+
+---
