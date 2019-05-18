@@ -2,7 +2,7 @@
 
 #### 1.& |位运算优先级
 
-![img1](/Android/Android日常笔记三/img1.png)
+![img1](./Android日常笔记三/img1.png)
 
 ---
 
@@ -10,7 +10,7 @@
 
 [参考：](https://blog.csdn.net/hellokittylin/article/details/47321753)
 添加`android:fillViewport="true"`可以使得里面的ListView等可扩展控件铺满全屏，当超过屏幕时候没有作用。
-![img2](/Android/Android日常笔记三/img2.png)
+![img2](./Android日常笔记三/img2.png)
 
 ---
 
@@ -52,7 +52,7 @@ AS预览资源文件显示不出来
 ---
 #### 7. 数据流写后同步操作
 
-![img3](/Android/Android日常笔记三/img3.png)
+![img3](./Android日常笔记三/img3.png)
 
 fo.flush();
 
@@ -87,12 +87,12 @@ fo.getFD().sync();
 ---
 #### 11.  桌面小控件可以不再广播中更新，再server或者activity中也可以。
 > 这个具体看如何写一个桌面小控件
-![img4](/Android/Android日常笔记三/img4.png)
+![img4](./Android日常笔记三/img4.png)
 
 ---
 #### 12.   Android 5.1隐式启动Server需要添加包名，启动哪个server就加哪个apk的包名。
 
-![img5](/Android/Android日常笔记三/img5.png)
+![img5](./Android日常笔记三/img5.png)
 
 参考：[**关于Android Service真正的完全详解，你需要知道的一切**](http://blog.csdn.net/javazejian/article/details/52709857)
 
@@ -135,7 +135,7 @@ android.text.format.DateFormat.is24HourFormat(context)
 ---
 #### 18.  最近想提取一个Theme.Material里面的checkBox的一个样式文件，费了不少功夫终于还是提取出来了。
 
-![img6](/Android/Android日常笔记三/img6.gif)
+![img6](./Android日常笔记三/img6.gif)
 
 - 首先我从themes_material-->Theme.Material里面去搜索checkboxStyle，根据指示进到`@style/Widget.Material.CompoundButton.CheckBox`发现里面只有一个
 ```xml
@@ -151,7 +151,7 @@ android.text.format.DateFormat.is24HourFormat(context)
 
 而且?attr/这个属性是引用style里面的属性的意思（百度查到）
 
-![img7](/Android/Android日常笔记三/img7.png)
+![img7](./Android日常笔记三/img7.png)
 
 顿时我就懵逼了，listChoiceIndicatorMultiple这个是什么属性啊我去哪找。。
 
@@ -187,7 +187,7 @@ android:tint="@color/control_checkable_material"
 
 一切搞定之后发现点击的时候没有点击效果
 
-![img8](/Android/Android日常笔记三/img8.png)
+![img8](./Android日常笔记三/img8.png)
 
 就是这个按下效果没有。。btn_check_material_anim里面也没有，在Theme里面的checkbox Style是有的。可这里没有。。突然记起来前面有个
 
@@ -198,7 +198,7 @@ android:tint="@color/control_checkable_material"
 ---
 #### 19. android  5.0各颜色属性设置
 
-![img9](/Android/Android日常笔记三/img9.png)
+![img9](./Android日常笔记三/img9.png)
 
 - colorPrimary 应用的主要色调，actionBar默认使用该颜色，Toolbar导航栏的底色
 
@@ -344,22 +344,22 @@ current =mAudioManager.getStreamVolume( AudioManager.STREAM_ALARM );
 ---
 #### 22.  蓝牙：
 
-![img10](/Android/Android日常笔记三/img10.png)
+![img10](./Android日常笔记三/img10.png)
 
 
 
-![img11](/Android/Android日常笔记三/img11.png)
+![img11](./Android日常笔记三/img11.png)
 
 
 
-![img12](/Android/Android日常笔记三/img12.png)
+![img12](./Android日常笔记三/img12.png)
 
 ---
 #### 23.  android  获取api版本号
 ```java
 Build.VERSION.SDK_INT
 ```
-![img13](/Android/Android日常笔记三/img13.png)
+![img13](./Android日常笔记三/img13.png)
 
 ---
 #### 24. MD主题切换 

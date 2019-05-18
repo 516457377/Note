@@ -297,7 +297,7 @@ example：<https://jitpack.io/com/github/516457377/HelloLibs/1.0/HelloLibs-1.0.a
 
 [https://jitpack.io/](https://jitpack.io/com/github/516457377/HelloLibs/1.0/HelloLibs-1.0.aar) **+**
 
-![img1](/Android/Android日常笔记四/img1.png)  
+![img1](./Android日常笔记四/img1.png)  
 
 
 #### 6.  利用JitPack创建自己的开源库。
@@ -362,7 +362,7 @@ Java | Declaration redundancy | Unused declaration
 
 去掉勾就行了。
 
-![img](/Android/Android日常笔记四/img4.png)
+![img](./Android日常笔记四/img4.png)
 
 #### 9. Log cat输出是有长度限制的
 

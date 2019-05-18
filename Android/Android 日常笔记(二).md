@@ -13,9 +13,9 @@ params.setHeader("Content-Type", "application/json");
 
 params.setBodyEntity(new StringEntity(shuju.toString()));
 ```
-![img1](/Android/Android日常笔记二/img1.png)
+![img1](./Android日常笔记二/img1.png)
 
-![img2](/Android/Android日常笔记二/img2.png)
+![img2](./Android日常笔记二/img2.png)
 
 ---
 #### 2. AsyncTask 了解
@@ -112,7 +112,7 @@ mWakeLock.acquire();
 ---
 #### 7. Android 5.0之后启动server只能用显示启动不能用隐示启动
 
-![img3](/Android/Android日常笔记二/img3.png)
+![img3](./Android日常笔记二/img3.png)
 
 ---
 #### 8. ViewPager发现setOnPageChangeListener的方法居然过期了，而且AS编译不通过了，最后查了一下原来把set换成add了
@@ -122,7 +122,7 @@ mWakeLock.acquire();
 
 [java的多态——null参数会调用哪个方法？](http://blog.csdn.net/zchuanzhao/article/details/48805561)
 
-![img4](/Android/Android日常笔记二/img4.png)
+![img4](./Android日常笔记二/img4.png)
 
 ---
 #### 10. 将Xml里面的array转换成list：
@@ -131,7 +131,7 @@ ArrayList<String> list = new ArrayList<String>(
 
 Arrays.asList(getResources().getStringArray(R.array.child1)));
 ```
-![img5](/Android/Android日常笔记二/img5.png)
+![img5](./Android日常笔记二/img5.png)
 
 
 
@@ -197,7 +197,7 @@ android:navigationBarColor//导航栏颜色
 
 问题如图：
 
-![img6](/Android/Android日常笔记二/img6.gif)
+![img6](./Android日常笔记二/img6.gif)
 
 
 造成原因，当切换语言后，activity会先把之前的销毁掉（destroy），然后重新执行created，但是为什么会有部分还停留在之前的状态呢（暂时不明，估计是在destroy时候没有清除对应的资源）。
@@ -209,7 +209,7 @@ android:navigationBarColor//导航栏颜色
 
 解决办法一是避免让activity重新创建。需要在AcndroidManifest里面添加android:configChanges方法常用方法：
 
-![img7](/Android/Android日常笔记二/img7.png)
+![img7](./Android日常笔记二/img7.png)
 
 当添加了对应事件之后，触发将不会在重新创建而是直接执行`onConfigurationChanged(Configuration newConfig)`方法，所以如果有需要改动的数据可以在里面手动改变。参考：[Android Configuration change引发的问题及解决方法](http://blog.csdn.net/aliaooooo/article/details/23606179)
 
@@ -220,7 +220,7 @@ gson常规用法，mData = gson.fromJson(jsonstr, MyData.class);
 
 使用工具类：
 
-[DataFactory.java](/Android/Android日常笔记二/DataFactory.java)
+[DataFactory.java](./Android日常笔记二/DataFactory.java)
 
 使用方法：
 
@@ -230,14 +230,14 @@ gson常规用法，mData = gson.fromJson(jsonstr, MyData.class);
 
     System.out.println("o:" + beanob.getText());
 ```
-![img](/Android/Android日常笔记二/img8.png)
+![img](./Android日常笔记二/img8.png)
 
 - 数组json：
 ```java
         ArrayList<Beanlist> arrayList = DataFactory.jsonToArrayList("[{\"text\":1}]", Beanlist.class);
         System.out.println("L:" + arrayList.get(0).getText());
 ```
-![img](/Android/Android日常笔记二/img9.png)
+![img](./Android日常笔记二/img9.png)
 
 ---
 #### 17. Eclipse 当选中一个文件点击run还是运行上次运行的项目问题：
@@ -311,7 +311,7 @@ RelativeLayout.LayoutParams rlp=new RelativeLayout.LayoutParams(RelativeLayout.L
 ---
 #### 23. View创建过程图：
 
-![img10](/Android/Android日常笔记二/img10.jpeg)
+![img10](./Android日常笔记二/img10.jpeg)
 
 ---
 #### 24. 在Oncreate里面获取控件宽高，参考[**Android 获取控件的宽和高**](http://blog.csdn.net/johnny901114/article/details/7839512)
@@ -347,7 +347,7 @@ System.out.println("27被开3次方为："+z);
 
 坑2： 
 
-![img11](/Android/Android日常笔记二/img11.png)
+![img11](./Android日常笔记二/img11.png)
 
 为什么在try里面声明的BufferedWriter用write方法写不进去数据也没用抛出异常。但是在try外面声明然后调用write方法就可以写入数据？
 

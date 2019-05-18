@@ -40,10 +40,11 @@
 
 #### 9. 监听EditText内容变化
 给EditText追加ChangedListener
-
+```java
     EditText editText = (EditText) findViewById(R.id.edittext);
     
     editText.addTextChangedListener(this);
+```
 
 #### 10. viod 类型的方法内return了就表示执行结束
 
@@ -90,7 +91,7 @@ __备注：这两个方法只对英文字母有效，对除了A~Z和a~z的其余
 #### 15. [Viewholder 的最基本使用Holder（setTag、getTag）](http://www.tuicool.com/articles/vimeAj)
 实质就是在View里面可以存放一个数据`tag`。
 
-![img1](/Android/Android日常笔记一/img1.png)
+![img1](./Android日常笔记一/img1.png)
 
 
 View中的setTag（Onbect）表示给View添加一个格外的数据，以后可以用getTag()将这个数据取出来。
@@ -111,6 +112,7 @@ super出现在继承了父类的子类中。有三种存在方式：
 
 #### 17. 泛型常用标记
 Java泛型中的标记符含义：   
+```
      E - Element (在集合中使用，因为集合中存放的是元素)
     
      T - Type（Java 类）
@@ -121,6 +123,7 @@ Java泛型中的标记符含义：
     
     ？ -  表示不确定的java类型
      S、U、V  - 2nd、3rd、4th types
+```
 
 #### 18. 关于listview的setAdapter和notifyDataSetChanged
 其实2个都可以更新，`notifyDataSetChanged`与`setAdapter`执行后都会到getView方法中，不同在于调用`setAdapter`的话`view`是空的需要重新创建，而前者传的是之前的`view`实体；另一个区别`setAdapte`__会使页面回到顶部__，不会停留在之前的位置  
@@ -128,34 +131,35 @@ Java泛型中的标记符含义：
 
 #### 19. 强制转换类的时候里面一定要有个无参构造函数否则会获取不到数据
 > 表示我看不懂了。。。  
-![img2](/Android/Android日常笔记一/img2.png)  
-![img3](/Android/Android日常笔记一/img3.png)
+![img2](./Android日常笔记一/img2.png)  
+![img3](./Android日常笔记一/img3.png)  
 
 
 #### 20. android listview item选中，成选中状态颜色高亮显示方法：
 在onitemclick里面设置pos并notifyDataSetChanged，
-
+```java
      public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {  
               
             adapter.setSelectItem(arg2);  
             adapter.notifyDataSetInvalidated();  
     //      adapter.notifyDataSetChanged();  
         } 
-
+```
 然后在adapter
-
+```java
      if (position == selectItem) {  
             convertView.setBackgroundColor(Color.RED);  
                 }   
         else {  
             convertView.setBackgroundColor(Color.TRANSPARENT);  
-                }  
+                }
+```
 [参考链接](http://blog.csdn.net/dany1202/article/details/6043654)
 
 #### 21. Adapter notifyDataSetChanged 和notifyDataSetInvalidated区别
-![img4](/Android/Android日常笔记一/img4.png)  
+![img4](./Android日常笔记一/img4.png)  
 如果  
-![img5](/Android/Android日常笔记一/img5.png)
+![img5](./Android日常笔记一/img5.png)
 
 将列表拉倒最底部（item数量超过一页）`notifyDataSetChanged` 不会移除选中效果，但是`notifyDataSetInvalidated`有效
 `notifyDataSetInvalidated()`，会重绘控件（还原到初始状态）
@@ -165,67 +169,68 @@ Java泛型中的标记符含义：
 > 现在问题不止这个了，可能是你sdk版本太高，建议用Android studio
 
 #### 23. 调试串口修改mac地址
+    修改mac地址
+```
     su
     busybox ifconfig wlan0 down
     busybox ifconfig wlan0 hw ether 74:51:ba:41:52:82
     busybox ifconfig wlan0 up
     netcfg
-    
-    修改mac地址
+```
 
-#### 24. win7锁定任务栏图标快捷方式地址
-> 额为什么这个都在这里。
+~~#### 24. win7锁定任务栏图标快捷方式地址~~
+~~> 额为什么这个都在这里。~~
 
-`C:\Users\Liaohuan\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`
+~~`C:\Users\Liaohuan\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`~~
 
 
 #### 25. android获取屏幕的高度和宽度用到WindowManager这个类，两种方法： 
- 
+
 - 方法一
 
         WindowManager wm = (WindowManager) getContext()
                         .getSystemService(Context.WINDOW_SERVICE);
-     
+         
          int width = wm.getDefaultDisplay().getWidth();
          int height = wm.getDefaultDisplay().getHeight();
- 
+
 - 方法二
 
         WindowManager wm = this.getWindowManager();
-     
+         
          int width = wm.getDefaultDisplay().getWidth();
          int height = wm.getDefaultDisplay().getHeight();
 > 额，这特么不一样的嘛。我怎么想的
 #### 26. new 和getInstance
 > 这。。不是每个类都有getInstance方法的，反正有用这个就不会错了。复用
 
-![img6](/Android/Android日常笔记一/img6.png)
+![img6](./Android日常笔记一/img6.png)
 
 
 #### 27. 排序：collection
 
-![img7](/Android/Android日常笔记一/img7.png)  
-![img8](/Android/Android日常笔记一/img8.png)
+![img7](./Android日常笔记一/img7.png)  
+![img8](./Android日常笔记一/img8.png)
 
 #### 28. 模糊查找（包含）String.contains(String);
 > ...
 
-![img9](/Android/Android日常笔记一/img9.png)    
-![img10](/Android/Android日常笔记一/img10.png)
+![img9](./Android日常笔记一/img9.png)    
+![img10](./Android日常笔记一/img10.png)
 
 #### 29. 获取assets媒体文件并播放
 
-![img11](/Android/Android日常笔记一/img11.png)
+![img11](./Android日常笔记一/img11.png)
 
 #### 30. [获取屏幕宽度， 高度及Density(显示密度）](http://blog.csdn.net/cnnumen/article/details/7719923)
 
 #### 31.[动画的基本使用方法](http://www.360doc.com/content/13/0102/22/6541311_257754535.shtml)
 
 #### 32. 播放列表，点击列表某一项选择播放
-![img12](/Android/Android日常笔记一/img12.png)
+![img12](./Android日常笔记一/img12.png)
 
 #### 33. focus、click、select、enable
-![img13](/Android/Android日常笔记一/img13.png)
+![img13](./Android日常笔记一/img13.png)
 
 
 
@@ -254,7 +259,7 @@ Java泛型中的标记符含义：
     win.addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
 #### 38. 这是Android原生seekbar.9背景图
-![img14](/Android/Android日常笔记一/img14.png)
+![img14](./Android日常笔记一/img14.png)
 
 #### 39. 数组转化为List对象Arrays.asList()
 将一个数组转化为一个List对象，这个方法会返回一个ArrayList类型的对象， 这个ArrayList类并非java.util.ArrayList类，而是Arrays类的静态内部类！
@@ -263,10 +268,10 @@ Java泛型中的标记符含义：
 #### 40.从电脑调试安装apk
 > adb install + apk
 
-![img15](/Android/Android日常笔记一/img15.jpeg)
+![img15](./Android日常笔记一/img15.jpeg)
 
 #### 41. 不定参数，其实是个数组
-![img16](/Android/Android日常笔记一/img16.png)
+![img16](./Android日常笔记一/img16.png)
 
 #### 42. 获取网页session
 > 打开网页然后地址栏输入js回车
@@ -274,8 +279,8 @@ Java泛型中的标记符含义：
     javascript:alert (document. cookie)
 
 #### 43. XML文件里面context什么意思？
-![img17](/Android/Android日常笔记一/img17.png)  
-![img18](/Android/Android日常笔记一/img18.png)
+![img17](./Android日常笔记一/img17.png)  
+![img18](./Android日常笔记一/img18.png)
 
 
 
