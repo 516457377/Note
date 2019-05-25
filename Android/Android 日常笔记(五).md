@@ -286,3 +286,4 @@ public static String getBtAddressByReflection() {
 ```
 
 ---
+#### 16. Android 获取计算wifi信号强度等级。
