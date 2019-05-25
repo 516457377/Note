@@ -287,3 +287,107 @@ public static String getBtAddressByReflection() {
 
 ---
 #### 16. Android 获取计算wifi信号强度等级。
+
+```java
+int android.net.wifi.WifiManager.calculateSignalLevel(int rssi, int numLevels)
+```
+这个方法输入当前wifi信号强度（负数越接近0信号强度越强，小于-127表示无信号），第二个参数传入一个分级等级+1。eg：如果有三个等级传入4。  
+返回值越大信号越强。
+
+> 一个小技巧，如果只有三个等级，稍微有一点波动就会变成2格信号，视觉感不好，可以传入4个等级（5），然后3、4级都显示满格信号。
+
+- wifi 信号强度获取
+```java
+    private WifiInfo wifiInfo = null; // 获得的Wifi信息
+    private WifiManager wifiManager = null; // Wifi管理器
+	...
+	wifiManager = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);
+    wifiInfo = wifiManager.getConnectionInfo();//获取当前链接的wifi信息
+    wifiInfo.getRssi();
+
+	...
+
+    List<ScanResult> scanResults=wifiManager.getScanResults();//搜索到的设备列表
+    for (ScanResult scanResult : scanResults) {
+            tv.append("\n设备名："+scanResult.SSID +" 信号强度："+scanResult.level+"/n :"+wifiManager.calculateSignalLevel(scanResult.level,4));
+        }
+```
+
+
+- 第二种方法获取Setting中的方法。
+
+  > 比较麻烦。。
+```java
+    private WifiTracker mWifiTracker;
+    protected WifiManager mWifiManager;
+    private HandlerThread mBgThread;
+    ...
+
+    mBgThread = new HandlerThread(TAG, Process.THREAD_PRIORITY_BACKGROUND);
+    mBgThread.start();
+    mWifiTracker = new WifiTracker(this, this, mBgThread.getLooper(), true, true, false);
+    mWifiManager = mWifiTracker.getManager();
+    
+    ...
+protected void onResume() {
+    mWifiTracker.startTracking();
+    if (!mWifiManager.isWifiEnabled()) {
+    	img_wifi.setImageResource(R.drawable.ic_wifi_unable);
+     	setWifiImage(mWifiManager.getConnectionInfo());
+     } else {
+        img_wifi.setImageResource(R.drawable.ic_wifi_no);
+     }
+    }
+    
+...
+private void setWifiImage(WifiInfo info){
+    if (!mWifiManager.isWifiEnabled()) {
+       	img_wifi.setImageResource(R.drawable.ic_wifi_unable);
+     } else {
+            if (info != null) {
+                List<AccessPoint> mAccessPoints = mWifiTracker.getAccessPoints();
+                for (AccessPoint mAccessPoint : mAccessPoints) {
+                    if (String.valueOf(mAccessPoint.getSsid()).equals(info.getSSID().replace("\"", ""))) {
+                        int level = WifiManager.calculateSignalLevel(mAccessPoint.getRssi(), 5);
+                        LogUtil.e("mWifiInfo rssi " + info.getRssi() + ",mAccessPoint " + mAccessPoint.getRssi()
+                                + ",level " + level);
+                        switch (level) {
+                        case 1:
+ img_wifi.setImageResource(R.drawable.ic_wifi_one);
+                            break;
+
+                        case 2:
+ img_wifi.setImageResource(R.drawable.ic_wifi_two);
+                            break;
+
+                        case 3:
+ img_wifi.setImageResource(R.drawable.ic_wifi_three);
+                            break;
+
+                        case 4:
+ img_wifi.setImageResource(R.drawable.ic_wifi_four);
+                            break;
+                        default:
+ img_wifi.setImageResource(R.drawable.ic_wifi_no);
+                            break;
+                        }
+                    }
+                }
+                if (info.getRssi() <= -100) {
+                    img_wifi.setImageResource(R.drawable.ic_wifi_no);
+                } 
+            }
+            }
+    }
+    
+```
+
+
+
+需要添加权限
+
+```xml
+<uses-permission Android:name="android.permission.ACCESS_WIFI_STATE"/>
+```
+
+---
