@@ -391,3 +391,74 @@ private void setWifiImage(WifiInfo info){
 ```
 
 ---
+#### 17. 快捷创建ViewPager滚动页面。
+[参考链接](https://wenku.baidu.com/view/7e5a60f9ddccda38366baf17.html)
+
+-  创建view1.xml,view2.xml,view3.xml,main.xml 
+  在main.xml中创建
+```xml
+    <android.support.v4.view.ViewPager
+        android:id="@+id/new_page"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp" />
+```
+-  创建MainActivity.java
+```java
+	private ViewPager pager;
+    private List<View> listView;
+    private View pagerView1, pagerView2;
+    
+    ...
+    
+    pager = (ViewPager) rootView.findViewById(R.id.new_page);
+    listView = new ArrayList<View>();
+    pagerView1 = View.inflate(getContext(), R.layout.new_pager1, null);
+    pagerView2 = View.inflate(getContext(), R.layout.new_pager2, null);
+    
+    listView.add(pagerView1);
+    listView.add(pagerView2);
+    pager.setAdapter(new NewPagerAdapter(listView));
+```
+-  创建适配器MyViewPagerAdapter.java
+```java
+public class NewPagerAdapter extends PagerAdapter {
+    
+    private List<View> viewList;
+    
+    public NewPagerAdapter() {
+        super();
+    }
+
+    public NewPagerAdapter(List<View> viewList) {
+        super();
+        this.viewList = viewList;
+    }
+
+    @Override
+    public int getCount() {
+        return viewList.size();
+    }
+
+    @Override
+    public boolean isViewFromObject(View arg0, Object arg1) {
+        // View是否来自于对象
+        return arg0 == arg1;
+    }
+    
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        // 实例化一个页卡
+        container.addView(viewList.get(position));
+        
+        return viewList.get(position);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        //销毁一个页卡
+        container.removeView(viewList.get(position));
+    }
+    
+}
+```
+
