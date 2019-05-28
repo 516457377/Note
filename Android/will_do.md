@@ -35,3 +35,5 @@
 [串口通信校验方式（even，odd，space，mark](https://blog.csdn.net/u010963246/article/details/47171521)
 [串口参数详解：波特率，数据位，停止位，奇偶校验位](https://blog.csdn.net/guomutian911/article/details/47044603)
 
+#### 8. RecyclerView 滑动到指定item。
+[资料](https://www.jianshu.com/p/bde672af4e11)
