@@ -17,3 +17,103 @@
 ![img1](./Android日常笔记六/img1.png)
 
 > 所以说光是三基色，颜料是三原色。
+
+---
+#### 2. 自定义控件之--按钮旋转
+> 首先是有这样的一个需求 如图：
+![img2](./Android日常笔记六/img2.gif)  
+
+网上找的参考资料：  
+- [Android对图片进行平移，缩放，旋转操作](https://www.cnblogs.com/andlp/p/5972260.html) --> [源码下载地址](/Android日常笔记六/com.maneater.picscreator.zip)| 这个有源码，但是实现方式比较复杂稍微看了下没用  
+![img3](./Android日常笔记六/img3.gif)
+
+- [android控件随手势旋转](https://www.jianshu.com/p/e0ab33ea0431) | 现在用的是这个里面的方法  
+
+详细实现：
+
+```java
+    /**
+     * 根据坐标系中的3点确定夹角的方法（注意：夹角是有正负的）
+     * @param cen 旋转的中心点
+     * @param first 起始点
+     * @param second 结束点
+     * @return 返回旋转的角度具有方向
+     */
+    public float angle(PointF cen, PointF first, PointF second) {
+        float dx1, dx2, dy1, dy2;
+
+        dx1 = first.x - cen.x;
+        dy1 = first.y - cen.y;
+        dx2 = second.x - cen.x;
+        dy2 = second.y - cen.y;
+
+        // 计算三边的平方
+        float ab2 = (second.x - first.x) * (second.x - first.x) + (second.y - first.y) * (second.y - first.y);
+        float oa2 = dx1 * dx1 + dy1 * dy1;
+        float ob2 = dx2 * dx2 + dy2 * dy2;
+        // 根据两向量的叉乘来判断顺逆时针
+        boolean isClockwise = ((first.x - cen.x) * (second.y - cen.y) - (first.y - cen.y) * (second.x - cen.x)) > 0;
+
+        // 根据余弦定理计算旋转角的余弦值
+        double cosDegree = (oa2 + ob2 - ab2) / (2 * Math.sqrt(oa2) * Math.sqrt(ob2));
+
+        // 异常处理，因为算出来会有误差绝对值可能会超过一，所以需要处理一下
+        if (cosDegree > 1) {
+            cosDegree = 1;
+        } else if (cosDegree < -1) {
+            cosDegree = -1;
+        }
+
+        // 计算弧度
+        double radian = Math.acos(cosDegree);
+        // 计算旋转过的角度，顺时针为正，逆时针为负
+        return (float) (isClockwise ? Math.toDegrees(radian) : -Math.toDegrees(radian));
+
+    }
+```
+
+代码我就不做讲解了，也不是我写的，有学霸自然看得懂。但是有几个值得注意的地方着重讲下：
+
+- 三个点的获取方式：AB点的获取比较简单，主要是pointCenter点和event.getY()/event.getRawY()的区别。  
+如果使用的是getY()，也就是当前view的左上角为原点的坐标，这时候pointCenter点就很好算了直接是`img.getWidth() / 2, img.getHeight() / 2`如果使用的是getRawY()，那么中心点就是`img.getLeft()+img.getWidth() / 2, img.getTop()+img.getHeight() / 2`
+```java
+    case MotionEvent.ACTION_DOWN:
+    lastX = event.getX();
+    lastY = event.getY();
+    pointCenter = new PointF(img.getWidth() / 2, img.getHeight() / 2);
+    break;
+    case MotionEvent.ACTION_MOVE:
+    pointA = new PointF(lastX, lastY);
+    pointB = new PointF(event.getX(), event.getY());
+
+    float v1 = angle(pointCenter, pointA, pointB) + img.getRotation();
+    //限制旋转的角度
+    v1 = v1 > 270 ? 270 : v1;
+    v1 = v1 < 0 ? 0 :v1;
+
+    img.setRotation(v1);
+
+    toast(v1 + "___" + (int) pointB.x + "__" + (int) pointCenter.y);
+    lastX = event.getX();
+    lastY = event.getY();
+    break;
+```
+- 在demo里面实现旋转是点击外部某个按钮才实现旋转，我需要实现的是在控件内部直接旋转。所以当我在imgView上面直接使用OnTouchListener里面操作的时候，出现了一个问题就是，旋转很不流畅有抖动，具体原因未知，个人猜测是，因为在view上面的touch事件的event值当setRotation旋转的时候也会有所改变导致抖动。最后解决方案是在imgview上面覆盖一个view，使用view的触摸监听来控制imgview旋转。问题解决。 
+```xml
+     <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/knobview" />
+
+    <View
+        android:id="@+id/img_view"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true" />
+```
+
+---
+#### 3. 自定义控件之--跟随雷达波纹
+> 这是第二个需要制作的控件
