@@ -37,3 +37,30 @@
 
 #### 8. RecyclerView 滑动到指定item。
 [资料](https://www.jianshu.com/p/bde672af4e11)
+
+#### 9. 四舍五入
+```
+Android 数字四舍五入
+
+BigDecimal b = new BigDecimal(hour).setScale(1, BigDecimal.ROUND_HALF_UP);
+ 
+ 
+setScale(int newScale, int roundingMode);//第一个参数表示保留几位小数。
+```
+
+#### 10. android 如何保留数据两位小数
+https://blog.csdn.net/bzlj2912009596/article/details/81075057
+
+#### 11. Android保存String到文件和从文件中读取String
+https://blog.csdn.net/qust1508060414/article/details/58106619
+
+#### 12. UI
+https://lanhuapp.com/web/#/item/project/board?type=share_mark&pid=065f74a0-f513-4701-b63d-0e810a69e142&activeSectionId=&teamId=d760d33a-c853-4c9f-887d-64eb2469b21e&param=e06b36a9-993a-4420-bcc8-f8fb4caf8638
+
+#### 13. Android 7.1 修改launcher3默认壁纸
+https://blog.csdn.net/qq_27256793/article/details/89538928
+
+#### 14. Fragment 相关
+https://www.jianshu.com/p/28ca4cbe190c
+https://www.jianshu.com/p/06a563d7a02c
+https://blog.csdn.net/yforyoung/article/details/80208179

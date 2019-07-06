@@ -254,45 +254,44 @@ Windown -->Preferences --> java --> Editor --> templates
 ---
 #### 20. 自定义View宽高定测
 ```java
-@Override
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int desiredWidth = 100;//设定值
+        int desiredHeight = 100;
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        int width;
+        int height;
 
-​    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-​        int desiredWidth = width;
-​        int desiredHeight = height;
-​        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-​        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-​        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-​        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-​        int width;
-​        int height;
+        // Measure Width
+        if (widthMode == MeasureSpec.EXACTLY) {
+            // Must be this size
+            width = widthSize;
+        } else if (widthMode == MeasureSpec.AT_MOST) {
+            // Can't be bigger than...
+            width = Math.min(desiredWidth, widthSize);
+        } else {
+            // Be whatever you want
+            width = desiredWidth;
+        }
 
-​        // Measure Width
-​        if (widthMode == MeasureSpec.EXACTLY) {
-​            // Must be this size
-​            width = widthSize;
-​        } else if (widthMode == MeasureSpec.AT_MOST) {
-​            // Can't be bigger than...
-​            width = Math.min(desiredWidth, widthSize);
-​        } else {
-​            // Be whatever you want
-​            width = desiredWidth;
-​        }
+        // Measure Height
+        if (heightMode == MeasureSpec.EXACTLY) {
+            // Must be this size
+            height = heightSize;
+        } else if (heightMode == MeasureSpec.AT_MOST) {
+            // Can't be bigger than...
+            height = Math.min(desiredHeight, heightSize);
+        } else {
+            // Be whatever you want
+            height = desiredHeight;
+        }
 
-​        // Measure Height
-​        if (heightMode == MeasureSpec.EXACTLY) {
-​            // Must be this size
-​            height = heightSize;
-​        } else if (heightMode == MeasureSpec.AT_MOST) {
-​            // Can't be bigger than...
-​            height = Math.min(desiredHeight, heightSize);
-​        } else {
-​            // Be whatever you want
-​            height = desiredHeight;
-​        }
-
-​        // MUST CALL THIS
-​        setMeasuredDimension(width, height);
-​    }
+        // MUST CALL THIS
+        setMeasuredDimension(width, height);
+    }
 ```
 
 ---
@@ -329,9 +328,9 @@ RelativeLayout.LayoutParams rlp=new RelativeLayout.LayoutParams(RelativeLayout.L
 #### 25. dp转换px
 ```jvva
 private int dp2px(Context context, float dp) {
-​        final float scale = context.getResources().getDisplayMetrics().density;
-​        return (int) (dp * scale + 0.5f);
-​    }
+final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dp * scale + 0.5f);
+	}
 ```
 ---
 #### 26. Math开多次方
