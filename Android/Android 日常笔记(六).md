@@ -117,3 +117,19 @@
 ---
 #### 3. 自定义控件之--跟随雷达波纹
 > 这是第二个需要制作的控件
+待完成。。。
+
+---
+#### 4. Android instanceof 运算符
+> instanceof 是一个关键字，用于判断、检测一个对象是否为某个类的实例对象。  
+> 举个栗子：你定义了很多button，和点击方法：
+```java
+public void onClick(View v) {
+	if(v instanceof button1){//判断V是否为此button的实例。
+	 ***
+	}
+}
+
+```
+
+---
