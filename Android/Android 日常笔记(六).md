@@ -133,3 +133,23 @@ public void onClick(View v) {
 ```
 
 ---
+#### 5. Android app启动去掉有白屏、Tittle界面。
+  先看看问题如图：
+
+![img4](./Android日常笔记六/img4.gif)  
+
+相信你看得很清楚了，我的主界面是没有Title的，但是启动过程中还是会显示一下。
+介是为什么呢？ 根据[某CSDN描述](https://www.csdn.net/gather_29/MtTakg4sNDkwOS1ibG9n.html)    
+
+> 好像会先加载android主题然后才执行onCreate方法显示界面
+
+也就是说我的`requestWindowFeature(Window.FEATURE_NO_TITLE);`优先级并不够高。
+文中也给出了一种解决方案：
+```xml
+ <style name="Theme.BackgroundTranslucent" parent="@android:Theme.Translucent">
+    <item name="android:windowBackground">@null</item>
+    <item name="android:windowNoTitle">true</item>
+</style> 
+```
+然后给启动的Activity设置成此主题。确实问题解决了。最主要的就是在主题中添加：`windowBackground`和`windowNoTitle`。
+
