@@ -135,6 +135,7 @@ public void onClick(View v) {
 ---
 #### 5. Android app启动去掉有白屏、Tittle界面。
   先看看问题如图：
+[参考链接](https://blog.csdn.net/cdhahaha/article/details/56012325)
 
 ![img4](./Android日常笔记六/img4.gif)  
 
@@ -153,3 +154,59 @@ public void onClick(View v) {
 ```
 然后给启动的Activity设置成此主题。确实问题解决了。最主要的就是在主题中添加：`windowBackground`和`windowNoTitle`。
 
+#### 6. Android获取定位权限，手动打开GPS
+
+```java
+/**检查是否打开GPS*/
+private boolean checkGpsIsOpen() {
+        boolean isOpen;
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        isOpen = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        return isOpen;
+    }
+
+/**打开GPS跳转*/
+	private void openGPSSEtting() {
+        if (checkGpsIsOpen()){
+            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
+        }else {
+            new AlertDialog.Builder(this).setTitle("open GPS")
+                    .setMessage("go to open")
+                    //  取消选项
+                    .setNegativeButton("cancel",new DialogInterface.OnClickListener(){
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this, "close", Toast.LENGTH_SHORT).show();
+                            // 关闭dialog
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    //  确认选项
+                    .setPositiveButton("setting", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                          //跳转到手机原生设置页面
+                            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                            startActivityForResult(intent,GPS_REQUEST_CODE);
+                        }
+                    })
+                    .setCancelable(false)
+                    .show();
+        }
+    }
+    
+/**返回跳转结果*/
+	@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode ==GPS_REQUEST_CODE){
+            openGPSSEtting();
+        }
+    }
+
+```
+
+#### 7.Android BLE4.+
+https://blog.csdn.net/u014418171/article/details/81219297
+https://www.jianshu.com/p/795bb0a08beb
