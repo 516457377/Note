@@ -64,3 +64,14 @@ https://blog.csdn.net/qq_27256793/article/details/89538928
 https://www.jianshu.com/p/28ca4cbe190c
 https://www.jianshu.com/p/06a563d7a02c
 https://blog.csdn.net/yforyoung/article/details/80208179
+
+#### 15.暂停其他媒体、音乐、视频
+
+[资料一](https://www.baidu.com/s?wd=android%E6%9A%82%E5%81%9C%E5%85%B6%E4%BB%96%E5%AA%92%E4%BD%93&rsv_spt=1&rsv_iqid=0x967cd9d40043f47d&issp=1&f=3&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=request_18_pg&rsv_enter=1&rsv_dl=ts_3&rsv_sug3=14&rsv_sug1=13&rsv_sug7=100&rsv_t=cc5951rSQC9uGhwpR35Y5V1vzatfxoTwPuVJ1HAG5Spz5ThAGPGKWuPWDLasUhXylSh8BQ&rsv_sug2=0&prefixsug=Android%2520%25E6%259A%2582%25E5%2581%259C&rsp=3&inputT=9014&rsv_sug4=9014)
+
+https://blog.csdn.net/mirkerson/article/details/25053011  
+
+https://blog.csdn.net/qq_25815655/article/details/82842528
+
+#### 16. ec上传到github
+

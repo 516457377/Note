@@ -210,3 +210,5 @@ private boolean checkGpsIsOpen() {
 #### 7.Android BLE4.+
 https://blog.csdn.net/u014418171/article/details/81219297
 https://www.jianshu.com/p/795bb0a08beb
+
+#### 8. launchMode
