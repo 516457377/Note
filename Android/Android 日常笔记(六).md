@@ -154,6 +154,8 @@ public void onClick(View v) {
 ```
 然后给启动的Activity设置成此主题。确实问题解决了。最主要的就是在主题中添加：`windowBackground`和`windowNoTitle`。
 
+---
+
 #### 6. Android获取定位权限，手动打开GPS
 
 ```java
@@ -207,8 +209,34 @@ private boolean checkGpsIsOpen() {
 
 ```
 
+---
+
 #### 7.Android BLE4.+
+
 https://blog.csdn.net/u014418171/article/details/81219297
 https://www.jianshu.com/p/795bb0a08beb
 
+---
+
 #### 8. launchMode
+
+
+
+---
+
+#### 9. 点九 .9图制作“右下放，左上伸”。
+
+---
+
+#### 10. 在Android 5.0之前使用Dialog
+
+今天在兼容Android4.4的时候发现
+
+`dialog.create();`会报错，`NoSuchMethodError`提示找不到这个方法。看了源码后发现没有这个方法，但是在show的时候会调用，create里面的构造方法，这样的话就不能传参了。
+
+```java
+dialog.show();
+dialog.setData(data);
+```
+
+尝试后发现可以先show创建了窗口后再添加数据也是可以的。
