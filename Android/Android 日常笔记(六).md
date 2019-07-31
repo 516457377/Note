@@ -240,3 +240,17 @@ dialog.setData(data);
 ```
 
 尝试后发现可以先show创建了窗口后再添加数据也是可以的。
+
+---
+
+#### 11. ListView 关于滚动时候会有重影
+
+先看看具体问题/解决后：
+
+![img5](./Android日常笔记六/img5.gif)![img6](./Android日常笔记六/img6.gif)  
+
+>  问题很明显，但是为什么泥，我做了很多测试，新建了一个项目新建了一个listview，跑起来正常，然后原本复制过来，跑起来还是有拖影，这时候就可以排除list view的问题了。其他问题的话我就智能猜到主题了，试了一下果然是因为主题。因为之前改过启动黑屏问题，把背景设置成null了`<item name="android:windowBackground">@null</item>`导致没有背景，所以会把有的元素直接印在背景上面。
+
+上面的都是废话，解决办法也很简单。。在layout上面加个`android:background="#000000"`就可以了。
+
+---
