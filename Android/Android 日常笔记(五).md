@@ -105,7 +105,7 @@ System.out.println(m.matches());  //结果
 一个list集合`remove`其中一个元素之后，后面的元素会**自动向前移动**，因此可以使用循环，`get(0)`一直遍历。`Iterator`应该同理。
 
 ---
-#### 8. Activity之startActivityForResult  
+#### 8. Activity之startActivityForResult启动带返回参数Activity  
 当启动一个Avtivity之后有时候希望能过监听到启动的对象的状态或者返回参数，可以使用startActivityForResult(Intent intent, int requestCode)方法，该方法会需要传入一个`int requestCode`请求码参数，该参数会在启动Act被销毁后传回`onActivityResult(int requestCode, int resultCode, Intent data)`中，用于验证。返回方法中另外两个参数`int resultCode, Intent data`需要在启动Act中设置。用于返回数据对应操作。  
     在启动对象中通过`setResult(resultCode, intent);`方法设置返回参数。  
 
