@@ -77,3 +77,16 @@ https://blog.csdn.net/qq_25815655/article/details/82842528
 
 #### 17. Android最全UI库合集
 https://blog.csdn.net/sinat_33585352/article/details/88825720?tdsourcetag=s_pctim_aiomsg
+
+
+
+#### 18. Android Studio将项目发布到Maven仓库（3种方式最新最全）
+
+https://blog.csdn.net/xmxkf/article/details/80674232
+
+
+
+#### 19. Android中ListView字母排序，实现字母挤压效果以及右侧快速选中字母，搜索关键字功能
+
+https://blog.csdn.net/wyh_healer/article/details/51801954
+

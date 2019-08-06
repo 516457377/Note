@@ -254,3 +254,33 @@ dialog.setData(data);
 上面的都是废话，解决办法也很简单。。在layout上面加个`android:background="#000000"`就可以了。
 
 ---
+#### 12. Android 获取本地软件版本号。(Version)
+```java
+	/*
+     * 获取当前程序的版本号
+     */
+    public static int getVersionCode(Context mContext) {
+        int versionCode = 0;
+        try {
+            //获取软件版本号，对应AndroidManifest.xml下android:versionCode
+            versionCode = mContext.getPackageManager().
+                    getPackageInfo(mContext.getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return versionCode;
+    }
+//获取版本号名称（对应versionName）
+    public static String getVerName(Context context) {
+        String verName = "";
+        try {
+            verName = context.getPackageManager().
+                    getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return verName;
+    }
+```
+
+---
