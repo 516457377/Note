@@ -284,3 +284,28 @@ dialog.setData(data);
 ```
 
 ---
+
+#### 13. Android AS 隐藏右侧速览黄色警告。
+
+如图：在AS里面这种警告实在太多了，导致自己的TODO标记，或者选择同名变量的时候大量混在一起难以分清。
+
+![img7](.\Android日常笔记六\img7.png)
+
+
+
+网上找了一下：[如何去掉Android Studio的注释警告](https://blog.csdn.net/zhangym90/article/details/52181750)  
+
+网上的步骤：
+
+> 具体步骤：File->Settings->Editor->Inspections,在右侧找到Javadoc issues下的Declaration has Javadoc problems右侧的勾去掉然后点击Apply或者OK即可。
+>
+> ![img8](.\Android日常笔记六\img8.png)
+
+试了下并不能隐藏掉我所谓的大量提示。
+
+于是乎：我把java的黄色提醒全部隐藏掉：ojbk
+
+![img9](.\Android日常笔记六\img9.png)
+
+---
+
