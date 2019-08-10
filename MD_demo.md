@@ -55,6 +55,9 @@ protected void onDestroy() {
 > 第一行引用文字  
 > 第二行引用文字  
 ---------------------
+
+9、当在链接中有空格的时候直接写空格会读不出来需要用%20替代空格。
+
 作者：无名的一棵小树 
 来源：CSDN 
 原文：https://blog.csdn.net/qq_31796651/article/details/80803599 
