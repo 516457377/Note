@@ -24,10 +24,10 @@
 ![img2](./Android日常笔记六/img2.gif)  
 
 网上找的参考资料：  
-- [Android对图片进行平移，缩放，旋转操作](https://www.cnblogs.com/andlp/p/5972260.html) --> [源码下载地址](https://raw.githubusercontent.com/516457377/Note/master/Android/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0%E5%85%AD/com.maneater.picscreator.zip)| 这个有源码，但是实现方式比较复杂稍微看了下没用  
+- [Android对图片进行平移，缩放，旋转操作](https://www.cnblogs.com/andlp/p/5972260.html) --> [源码下载地址](https://raw.githubusercontent.com/516457377/Note/master/Android/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0%E5%85%AD/com.maneater.picscreator.zip)（这个有源码，但是实现方式比较复杂稍微看了下没用）  
 ![img3](./Android日常笔记六/img3.gif)
 
-- [android控件随手势旋转](https://www.jianshu.com/p/e0ab33ea0431) | 现在用的是这个里面的方法  
+- [android控件随手势旋转](https://www.jianshu.com/p/e0ab33ea0431) （现在用的是这个里面的方法）  
 
 详细实现：
 
@@ -289,7 +289,7 @@ dialog.setData(data);
 
 如图：在AS里面这种警告实在太多了，导致自己的TODO标记，或者选择同名变量的时候大量混在一起难以分清。
 
-![img7](.\Android日常笔记六\img7.png)
+![img7](./Android日常笔记六/img7.png)
 
 
 
@@ -299,12 +299,12 @@ dialog.setData(data);
 
 > 具体步骤：File->Settings->Editor->Inspections,在右侧找到Javadoc issues下的Declaration has Javadoc problems右侧的勾去掉然后点击Apply或者OK即可。
 >
-> ![img8](.\Android日常笔记六\img8.png)
+> ![img8](./Android日常笔记六/img8.png)
 
 试了下并不能隐藏掉我所谓的大量提示。
 
 于是乎：我把java的黄色提醒全部隐藏掉：ojbk
 
-![img9](.\Android日常笔记六\img9.png)
+![img9](./Android日常笔记六/img9.png)
 
 ---
