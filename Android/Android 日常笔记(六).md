@@ -320,3 +320,39 @@ PS：拷贝文件最主要的是需要创建路径文件。`f.mkdirs()`，create
 ```
 
 ---
+#### 15. Android Studio添加aar依赖
+> 网上找了很多大部分都是老版本的，不太一样。
+https://www.cnblogs.com/jooy/p/9489527.html
+第一种:
+```groovy
+android{
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation (name: 'barcode_scanner_library_v2.3.2.0', ext: 'aar')
+}
+```
+第二种:
+```groovy
+android{
+   //不用写
+   /* repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }*/
+}
+dependencies {
+　    将
+     implementation fileTree(dir: 'libs', include: ['*.jar'])
+     改为
+     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+}
+```
+
+---
