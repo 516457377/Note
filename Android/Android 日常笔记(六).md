@@ -307,10 +307,15 @@ dialog.setData(data);
 
 ![img9](./Android日常笔记六/img9.png)
 
+
+
+**PS: `Java - Deprecated API usage`这个可以勾上，用来显示废弃的代码。  getResources().~~getDrawable~~(R.drawable.btn_bg);**
+
 ---
 #### 14. Android 拷贝文件之createNewFile异常Not a directory
 今天遇到了一个奇怪的问题在需要拷贝一个文件到`/sdcard/baiduTTS/a.dat`目录，但是以开始忘记要先`f.mkdirs()`，创建路径文件，然后`fb.createNewFile();`创建需要拷贝的文件，后来修改了之后确发现，createNewFile创建的时候提示异常Not a directory，并且mkdirs也提示创建失败，但是根本没有baiduTTS这个文件夹，找了半天才发现原来根目录下面已经有了一个叫baiduTTS的文件，果断删除后发现，问题解决。
 PS：拷贝文件最主要的是需要创建路径文件。`f.mkdirs()`，createNewFile可以不用调用，直接拷贝也会创建。
+
 ```java
 		out = new FileOutputStream(fb);
         byte buffer[] = new byte[1024];

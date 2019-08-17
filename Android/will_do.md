@@ -89,3 +89,9 @@ https://blog.csdn.net/xmxkf/article/details/80674232
 #### 19. Android中ListView字母排序，实现字母挤压效果以及右侧快速选中字母，搜索关键字功能
 
 https://blog.csdn.net/wyh_healer/article/details/51801954
+
+
+
+#### 20. 自定义控件 - 流式布局（FlowLayout）
+
+https://www.jianshu.com/p/41e63a9e10bb?tdsourcetag=s_pctim_aiomsg
