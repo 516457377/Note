@@ -363,3 +363,4 @@ dependencies {
 ---
 #### 16. Android 申请权限的时候会阻塞UI线程嘛，直到权限通过。
 结论是不会的，申请权限只是会弹出一个dialog，并不会影响UI线程，所以如果在初始化中申请权限，后面有用到权限内容的应该在`onRequestPermissionsResult`中或者判断是否拥有权限后再执行。
+
