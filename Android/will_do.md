@@ -101,3 +101,17 @@ https://www.jianshu.com/p/41e63a9e10bb?tdsourcetag=s_pctim_aiomsg
 #### 22. Android网络请求
 
 https://www.jianshu.com/p/707756619df6
+
+
+
+#### 23. Duer
+
+https://cloud.baidu.com/doc/SPEECH/ASR-API.html#.E9.94.99.E8.AF.AF.E7.A0.81.E8.A7.A3.E9.87.8A
+
+https://ai.baidu.com/unit/v2#/sceneliblist
+
+https://ai.baidu.com/docs#/Auth/9d0f74c9
+
+https://dueros.baidu.com/didp/product/editview?id=15161&appId=dmAC9407D4313C939D
+
+http://developer.baidu.com/wiki/index.php?title=docs/oauth/device
