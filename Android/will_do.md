@@ -17,7 +17,7 @@
 
 #### 4.Android 横批竖屏，傻傻分不清楚LANDSCAPE、PORTRAIT
 
-    [参考](https://www.cnblogs.com/gccbuaa/p/6708317.html)
+[参考](https://www.cnblogs.com/gccbuaa/p/6708317.html)
 
 #### 5. Android 获取本机IP地址，WIFI、网口、数据等。
 
