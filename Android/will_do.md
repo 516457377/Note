@@ -115,3 +115,12 @@ https://ai.baidu.com/docs#/Auth/9d0f74c9
 https://dueros.baidu.com/didp/product/editview?id=15161&appId=dmAC9407D4313C939D
 
 http://developer.baidu.com/wiki/index.php?title=docs/oauth/device
+
+#### 24. 最全的android各国语言对照表
+https://blog.csdn.net/u010586698/article/details/56673379
+
+
+
+#### 25. Android矢量图(一)--VectorDrawable基础
+
+https://www.jianshu.com/p/0972a0d290e9?tdsourcetag=s_pctim_aiomsg
