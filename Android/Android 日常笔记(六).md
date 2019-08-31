@@ -366,3 +366,7 @@ dependencies {
 
 ---
 #### 17. 基础的网络访问流程
+首先需要添加权限：
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
