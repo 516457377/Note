@@ -124,3 +124,22 @@ https://blog.csdn.net/u010586698/article/details/56673379
 #### 25. Android矢量图(一)--VectorDrawable基础
 
 https://www.jianshu.com/p/0972a0d290e9?tdsourcetag=s_pctim_aiomsg
+
+#### 26. android学习—— MimeType的用途以及所有类型
+https://blog.csdn.net/janronehoo/article/details/7514883/
+
+https://www.cnblogs.com/wanqieddy/archive/2011/08/08/2131080.html
+
+```xml
+<activity
+            android:name=".ui.video.VideoPlayerActivity"
+            android:configChanges="mnc|mcc|orientation|keyboardHidden|screenSize|screenLayout|keyboard|navigation"
+            android:launchMode="singleInstance"
+            android:theme="@style/player" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </activity>
+```
