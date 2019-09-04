@@ -143,3 +143,7 @@ https://www.cnblogs.com/wanqieddy/archive/2011/08/08/2131080.html
             </intent-filter>
         </activity>
 ```
+
+#### 27. Android实现SoulApp星球效果
+
+https://www.jianshu.com/p/fec93e7b3329
