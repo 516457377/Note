@@ -147,3 +147,13 @@ https://www.cnblogs.com/wanqieddy/archive/2011/08/08/2131080.html
 #### 27. Android实现SoulApp星球效果
 
 https://www.jianshu.com/p/fec93e7b3329
+
+#### 28. 解决ValueAnimator.pause()与resume()向下不兼容
+
+https://blog.csdn.net/sinat_23568211/article/details/78716272
+
+
+
+#### 29. Android中图片圆形设置三种方法介绍
+
+https://blog.csdn.net/chaoshenzhaoxichao/article/details/79699282
