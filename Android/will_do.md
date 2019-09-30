@@ -157,3 +157,16 @@ https://blog.csdn.net/sinat_23568211/article/details/78716272
 #### 29. Android中图片圆形设置三种方法介绍
 
 https://blog.csdn.net/chaoshenzhaoxichao/article/details/79699282
+
+
+
+#### 30. [Android 开发 PopupWindow弹窗](https://www.cnblogs.com/guanxinjing/p/10156153.html)
+
+https://www.cnblogs.com/guanxinjing/p/10156153.html
+
+
+
+#### 31. 安卓改变状态栏字体颜色工具类
+
+https://www.jianshu.com/p/e40b949c535f
+

@@ -115,7 +115,7 @@
 ```
 
 ---
-#### 3. 自定义控件之--跟随雷达波纹
+#### 3. 自定义控件之--跟随雷达波纹:smiley:待完善
 > 这是第二个需要制作的控件
 待完成。。。
 
@@ -131,6 +131,7 @@ public void onClick(View v) {
 }
 
 ```
+这个栗子举的不对。
 
 ---
 #### 5. Android app启动去掉有白屏、Tittle界面。
@@ -211,14 +212,14 @@ private boolean checkGpsIsOpen() {
 
 ---
 
-#### 7.Android BLE4.+
+#### 7.Android BLE4.+:smiley:待完善
 
 https://blog.csdn.net/u014418171/article/details/81219297
 https://www.jianshu.com/p/795bb0a08beb
 
 ---
 
-#### 8. launchMode
+#### 8. launchMode:smiley:待完善
 
 
 
@@ -365,8 +366,435 @@ dependencies {
 结论是不会的，申请权限只是会弹出一个dialog，并不会影响UI线程，所以如果在初始化中申请权限，后面有用到权限内容的应该在`onRequestPermissionsResult`中或者判断是否拥有权限后再执行。
 
 ---
-#### 17. 基础的网络访问流程
+#### 17. 基础的网络访问流程:smiley:待完善
 首先需要添加权限：
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
+
+https://www.jianshu.com/p/707756619df6
+
+---
+#### 18. 蓝牙自动配对。
+
+```java
+BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(mac);
+ if (device!=null) {
+      device.createBond();
+     }
+```
+如上主要的配对方式就`createBond`很简单直接调用。mac地址是通过ble搜索到获取的。
+> 注：4.4的android 版本，也就是说，蓝牙的配对不能直接用 createBond 方法实现，而需要使用反射的方法。具体下面代码都会记录下来。 
+
+```java
+Method method = BluetoothDevice.class.getMethod("createBond");
+Log.e(getPackageName(), "开始配对");
+method.invoke(listdevice.get(position));
+```
+
+参考文章：
+- [Android蓝牙开发（一）之打开蓝牙和设备搜索](https://blog.csdn.net/huangliniqng/article/details/82185983)  
+- [ndroid蓝牙开发（二）之蓝牙配对和蓝牙连接](https://blog.csdn.net/huangliniqng/article/details/82187966)  
+- [Android蓝牙开发（三）之蓝牙通信](https://blog.csdn.net/huangliniqng/article/details/82189735)  
+- [android 蓝牙连接与配对](https://blog.csdn.net/qq_35702797/article/details/81663321)
+
+---
+#### 19. gravity和layout_gravity的不同处
+- gravity是设置自身内部元素的对齐方式。比如一个TextView，则是设置内部文字的对齐方式。如果是ViewGroup组件如LinearLayout的话，则为设置它内部view组件的对齐方式。
+
+- layout_gravity是设置自身相当于父容器的对齐方式。比如，一个TextView设置layout_gravity属性，则表示这TextView相对于父容器的对齐方式。
+- [Android gravity和layout_gravity的区别](https://www.cnblogs.com/xqz0618/p/gravity.html)
+
+---
+#### 20. Android调整Bitmap图片大小
+```java
+/**
+	 * 调整图片大小
+	 * 
+	 * @param bitmap
+	 *            源
+	 * @param dst_w
+	 *            输出宽度
+	 * @param dst_h
+	 *            输出高度
+	 * @return
+	 */
+	public static Bitmap imageScale(Bitmap bitmap, int dst_w, int dst_h) {
+		int src_w = bitmap.getWidth();
+		int src_h = bitmap.getHeight();
+		float scale_w = ((float) dst_w) / src_w;
+		float scale_h = ((float) dst_h) / src_h;
+		Matrix matrix = new Matrix();
+		matrix.postScale(scale_w, scale_h);
+		Bitmap dstbmp = Bitmap.createBitmap(bitmap, 0, 0, src_w, src_h, matrix,
+				true);
+		return dstbmp;
+	}
+```
+[Android调整Bitmap图片大小](https://blog.csdn.net/u013293125/article/details/81158208)
+
+---
+
+#### 21. Android高性能的圆角图片控件RoundImageView
+![img10](./Android日常笔记六/img10.jpg)
+
+```java
+package com.hpplay.muiltythreaddemo.roundimageview;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.widget.ImageView;
+
+/**
+ * Created by DON on 2017/8/22.
+ */
+
+public class RoundImageView extends ImageView {
+
+    private int radius = 20;
+
+    public RoundImageView(Context context) {
+        this(context, null);
+    }
+
+    public RoundImageView(Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public RoundImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        Path path = new Path();
+        path.addRoundRect(new RectF(0, 0, getWidth(), getHeight()), radius, radius, Path.Direction.CW);
+        canvas.clipPath(path);//设置可显示的区域，canvas四个角会被剪裁掉
+        super.onDraw(canvas);
+    }
+}
+```
+
+[Android高性能的圆角图片控件RoundImageView](https://www.jianshu.com/p/9aeca9f3fb1e)
+
+---
+#### 22. Android --break和continue、return区别。
+- break 跳出当前循环，并且不再循环。
+- continue 跳出当次循环，继续后面的循环。
+- return 结束当前方法。
+
+---
+#### 23. Android 获取本机壁纸图片。
+```java
+WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+// 获取当前壁纸
+Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+// 将Drawable,转成Bitmap
+Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();
+```
+http://www.itkeyword.com/doc/7851371679889215661/android-api-float
+
+---
+#### 24. Android 设置APP背景图片——android:windowBackground
+```java
+getActivity().getWindow().getDecorView().setBackground(new BitmapDrawable(blurBitmap));
+```
+
+---
+#### 25. Android 开启飞行模式方法：
+生效方式为：不知道为何需要多发几次广播才能生效。更多详细看下面链接。
+```java
+ String prog = "settings put global airplane_mode_on 1";
+  Runtime.getRuntime().exec(prog);
+  Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+  Thread.sleep(500);
+   // intent.putExtra("state", true);
+   sendBroadcast(intent);
+   Thread.sleep(500);
+   sendBroadcast(intent);
+```
+
+[Android 开启飞行模式的几种方式](https://www.jianshu.com/p/48505a20d496)
+
+---
+#### 26. Android检测网络状态 -判断当前网络是否可用
+
+用户手机当前网络可用：WIFI、2G/3G网络，用户打开与不打开网络，和是否可以用是两码事。可以使用指的是：用户打开网络了并且可以连上互联网进行上网
+
+```java
+/**
+	 * 检测当的网络（WLAN、3G/2G）状态
+	 * @param context Context
+	 * @return true 表示网络可用
+	 */
+	public static boolean isNetworkAvailable(Context context) {
+		ConnectivityManager connectivity = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity.getActiveNetworkInfo();
+			if (info != null && info.isConnected()) 
+			{
+				// 当前网络是连接的
+				if (info.getState() == NetworkInfo.State.CONNECTED) 
+				{
+					// 当前所连接的网络可用
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+```
+
+注意添加权限
+
+```java
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+```
+
+---
+上面的方法只是检测网络是否开启了，真实网络还需要用ping的方式验证。基本上只要判断是否是0即可，若是0则网络真正可用。
+```java
+    private int pingNetWord() {
+        Runtime runtime = Runtime.getRuntime();
+        int ret = -1;
+        try {
+            Process p = runtime.exec("ping -c 3 www.baidu.com");
+            ret = p.waitFor();
+            Log.i(TAP, "Process:" + ret);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+```
+还有一种通过http验证，更多自行查看。
+[Android功能点（一）——判断网络是否真正连通](https://blog.csdn.net/tangguotupaopao/article/details/73136516)
+
+---
+#### 27. Android 软件种设置默认背景为系统壁纸背景。
+
+```xml
+<style name="Theme.Holo.Wallpaper">
+<item name="android:colorBackgroundCacheHint">@null</item>
+<item name="android:windowBackground">@android:color/transparent</item>
+<item name="android:windowShowWallpaper">true</item> 
+</style>
+```
+在theme里面设置上面的设置即可，默认背景透明，显示壁纸。测试只要加后面两个item即可。
+
+---
+#### 28. Android APP 把view试图显示在顶层
+有这么一个需求，在桌面有几个按钮，选中的时候会放大，但是因为布局原因，就算放大也可能会被后面的view挡住。
+![img11](./Android日常笔记六/img11.png)
+
+常规将view显示在顶层的方法：
+```java
+View.bringToFront()
+```
+参考：[Android APP 把view试图显示在顶层](https://blog.csdn.net/lininglive/article/details/78402264)
+
+---
+#### 29. Android判断wifi状态监听wifi连接
+一、添加权限
+```xml
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+<uses-permission Android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
+二、注册监听广播
+注册监听有两种方式 
+1. AndroidMainfest.xml 中注册
+```xml
+<receiver android:name="com.receiver.WifiReceiver">
+    <intent-filter >
+       <action android:name="android.net.wifi.RSSI_CHANGED"/>
+       <action android:name="android.net.wifi.STATE_CHANGE"/>
+       <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+    </intent-filter>
+</receiver>
+```
+
+2. 在代码中注册
+
+```java
+ IntentFilter filter = new IntentFilter();
+ filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+ filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+ filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+ registerReceiver(new WifiReceiver(), filter);
+```
+
+三、实现监听广播类
+
+```java
+public class WifiReceiver extends BroadcastReceiver {
+    private static final String TAG = "wifiReceiver";
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals(WifiManager.RSSI_CHANGED_ACTION)) {
+            Log.i(TAG, "wifi信号强度变化");
+        }
+        //wifi连接上与否
+        if (intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
+
+            NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+            if (info.getState().equals(NetworkInfo.State.DISCONNECTED)) {
+                Log.i(TAG, "wifi断开");
+            } else if (info.getState().equals(NetworkInfo.State.CONNECTED)) {
+                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                //获取当前wifi名称
+                Log.i(TAG, "连接到网络 " + wifiInfo.getSSID());
+                TtsManager ttsManager = new TtsManager();
+                ttsManager.checkTtsJet(context.getApplicationContext());
+            }
+        }
+        //wifi打开与否
+        if (intent.getAction().equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) {
+            int wifistate = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_DISABLED);
+            if (wifistate == WifiManager.WIFI_STATE_DISABLED) {
+                Log.i(TAG, "系统关闭wifi");
+            } else if (wifistate == WifiManager.WIFI_STATE_ENABLED) {
+                Log.i(TAG, "系统开启wifi");
+            }
+        }
+    }
+}
+```
+[Android判断wifi状态 监听wifi连接](https://blog.csdn.net/qq_22157767/article/details/53398590)
+
+---
+
+#### 30. Android开发——蓝牙状态的监听
+今天遇到个问题，需要对蓝牙状态进行监听。这个功能之前做过，一直没有总结记录过，今天又遇到了，就记录一下蓝牙状态的监听过程。
+
+首先写一个广播接收器，主要实现蓝牙状态变化的广播接收。
+  
+```java
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+public class BluetoothStateBroadcastReceive extends BroadcastReceiver {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+        switch (action){
+            case BluetoothDevice.ACTION_ACL_CONNECTED:
+                Toast.makeText(context , "蓝牙设备:" + device.getName() + "已链接", Toast.LENGTH_SHORT).show();
+                break;
+            case BluetoothDevice.ACTION_ACL_DISCONNECTED:
+                Toast.makeText(context , "蓝牙设备:" + device.getName() + "已断开", Toast.LENGTH_SHORT).show();
+                break;
+            case BluetoothAdapter.ACTION_STATE_CHANGED:
+                int blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
+                switch (blueState){
+                    case BluetoothAdapter.STATE_OFF:
+                        Toast.makeText(context , "蓝牙已关闭", Toast.LENGTH_SHORT).show();
+                        break;
+                    case BluetoothAdapter.STATE_ON:
+                        Toast.makeText(context , "蓝牙已开启"  , Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                break;
+        }
+    }
+}
+```
+
+	然后注册上面这个广播接收器，这里就要根据具体需要可选择静态注册或动态注册了。
+
+静态注册方法
+
+```xml
+<receiver android:name=".BluetoothStateBroadcastReceive">
+      <intent-filter>
+            <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+            <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+            <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+      </intent-filter>
+</receiver>
+```
+
+动态注册方法
+
+首先定义一个接收器对象
+  
+```java
+private BluetoothStateBroadcastReceive mReceive;
+```
+
+然后写注册方法
+```java
+private void registerBluetoothReceiver(){
+      if(mReceive == null){
+            mReceive = new BluetoothStateBroadcastReceive();
+      }
+      IntentFilter intentFilter = new IntentFilter();
+      intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+      intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+      intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+      intentFilter.addAction("android.bluetooth.BluetoothAdapter.STATE_OFF");
+      intentFilter.addAction("android.bluetooth.BluetoothAdapter.STATE_ON");
+      registerReceiver(mReceive, intentFilter);
+ }
+```
+
+再不需要的时候记得要注销，注销方法
+```java
+private void unregisterBluetoothReceiver(){
+     if(mReceive != null){
+          unregisterReceiver(mReceive);
+          mReceive = null;
+     }
+}
+```
+
+记得添加权限
+```xml
+<uses-permission android:name="android.permission.BLUETOOTH" />
+```
+
+注意此监听不会有默认消息发送,既默认启动的时候不会知道当前状态，需要提前判断一下。
+
+```java
+if (BluetoothAdapter.getDefaultAdapter().isEnabled()) {
+     hz_bt.setEnabled(true);
+  }
+```
+
+[Android开发——蓝牙状态的监听](https://www.jianshu.com/p/d17a1415bc93)
+
+---
+#### 31. Android Bitmap与DrawAble与byte[]与InputStream之间的转换工具类
+工具类：[FormatTools.java](./Android日常笔记六/FormatTools.java)
+
+参考：
+
+[Android Bitmap与DrawAble与byte[]与InputStream之间的转换工具类](https://blog.csdn.net/h7870181/article/details/8663760/)
+
+---
+#### 32.Android获取文件的MD5值
+包含，file、InputStream 等文件的MD5.
+工具类：[FileDigest.java](./Android日常笔记六/FileDigest.java)
+
+参考：https://www.cnblogs.com/niray/p/3815117.html
