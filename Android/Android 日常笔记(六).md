@@ -798,3 +798,57 @@ if (BluetoothAdapter.getDefaultAdapter().isEnabled()) {
 工具类：[FileDigest.java](./Android日常笔记六/FileDigest.java)
 
 参考：https://www.cnblogs.com/niray/p/3815117.html
+
+---
+
+#### 33. 查找资源的ID，getIdentifier
+假如不知道一个ID存不存在R文件中，可以用`getResources().getIdentifier()`获取资源id，然后绑定它。
+```java
+Resources resources = getResources();
+        //获取布局文件的Id
+        int mainLayout = resources.getIdentifier("activity_main", "layout", getPackageName());
+        setContentView(mainLayout);
+        //获取TextView 的id
+        int txtId = resources.getIdentifier("author", "id", getPackageName());
+        //获取字符串id
+        int strId = resources.getIdentifier("author", "string", getPackageName());
+        //获取Drawable id
+        int drawableId = resources.getIdentifier("text_bg", "drawable", getPackageName());
+        TextView textView = (TextView) findViewById(txtId);
+        textView.setText(strId);
+        textView.setBackground(ContextCompat.getDrawable(this, drawableId));
+
+        //ImageView id
+        int imgId = resources.getIdentifier("launcher_icon", "id", getPackageName());
+        //mipmap id
+        int mipmapId = resources.getIdentifier("ic_launcher", "mipmap", getPackageName());
+        ImageView imageView = (ImageView) findViewById(imgId);
+        imageView.setImageResource(mipmapId);
+```
+
+---
+#### 34. Android 控制第三方播放器暂停、播放
+
+```java
+private boolean isPauseMusic = false;//全局变量
+ 
+//控制的地方
+AudioManager audioManager= (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+ 
+ 
+//如果是播放状态，抢焦点，音乐播放就会暂停
+if(audioManager.isMusicActive()){
+	audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC,                 
+                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT); 
+							isPauseMusic = true;
+	}
+ 
+ 
+//不需要时释放焦点，音乐播放就会继续
+  if (isPauseMusic) {
+		audioManager.abandonAudioFocus(null);
+		isPauseMusic = false;
+	}
+```
+参考链接：[点击](https://blog.csdn.net/qq_25815655/article/details/82842528)
+

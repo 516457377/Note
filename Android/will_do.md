@@ -170,3 +170,8 @@ https://www.cnblogs.com/guanxinjing/p/10156153.html
 
 https://www.jianshu.com/p/e40b949c535f
 
+
+
+#### 32. HTML无缓存。
+
+https://www.cnblogs.com/vivaxiaonan/p/9378345.html
