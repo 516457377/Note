@@ -852,3 +852,33 @@ if(audioManager.isMusicActive()){
 ```
 参考链接：[点击](https://blog.csdn.net/qq_25815655/article/details/82842528)
 
+---
+#### 35. Android 鼠标滑动监听
+[Android中不常见的监听： 鼠标划过/双击/右键](https://blog.csdn.net/zhenxi2735768804/article/details/53491963)
+
+```java
+    private class HoverListener implements OnHoverListener {
+        @Override
+        public boolean onHover(View useless, MotionEvent event) {
+            // if (preventResponseHover()) {
+            // return false;
+            // }
+            switch (event.getAction()) {
+            case MotionEvent.ACTION_HOVER_ENTER:
+                taost(event.getX() + "");
+                // useless.requestFocus();
+                // useless.requestFocusFromTouch();
+                // Toast.makeText(MainActivity.this, "yes",
+                // Toast.LENGTH_SHORT).show();
+                break;
+            case MotionEvent.ACTION_HOVER_EXIT:
+                // btn2.requestFocus();
+                // btn2.requestFocusFromTouch();
+                // Toast.makeText(MainActivity.this, "no",
+                // Toast.LENGTH_SHORT).show();
+                break;
+            }
+            return false;
+        }
+    } 
+```
