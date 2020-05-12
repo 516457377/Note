@@ -410,3 +410,7 @@ China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
 ### End
+
+---
+ #### 网页连接中的转码（%XX）
+[HTML URL 编码](https://www.w3school.com.cn/tags/html_ref_urlencode.html)

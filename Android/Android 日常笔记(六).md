@@ -882,3 +882,57 @@ if(audioManager.isMusicActive()){
         }
     } 
 ```
+
+---
+
+#### 36. Android - WebView 使用电脑版方式浏览网页
+参考：[Android webview显示电脑版网页](https://blog.csdn.net/qq982673701/article/details/78521554)
+
+第一步获取webview的setting，同时进行配置
+```java
+settings = webView.getSettings();
+settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+//支持js
+settings.setJavaScriptEnabled(true);
+```
+
+第二步
+设置浏览器标识，这一步最重要
+```java
+settings.setUserAgentString("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36");
+//自适应屏幕
+settings.setUseWideViewPort(true);
+settings.setLoadWithOverviewMode(true);
+//自动缩放
+settings.setBuiltInZoomControls(true);
+settings.setSupportZoom(true);
+//支持获取手势焦点
+webView.requestFocusFromTouch();
+webView.setWebViewClient(new MyWeb());
+```
+
+第三步在WebViewClient中设置自己的需求
+```java
+class MyWeb extends WebViewClient{
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        view.loadUrl(url);//在这里设置对应的操作
+        return false;
+    }
+
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
+    }
+
+    @Override
+    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+        super.onReceivedError(view, request, error);
+    }
+}
+```
+以上就是用手机自带的webview显示电脑网页的办法，浏览器标识是谷歌的，也可以改成自己需要的
+
+---
+
+#### 37. 
