@@ -1010,3 +1010,73 @@ public void onCreate() {
         startActivity(intent);
     }
 ```
+
+
+
+#### 42. Android Studio 如何编译系统软件以及替换framework
+
+在studio中要运行studio需要替换系统key，eclipse也是一样（但是很容易设置里面可以直接选）
+```
+android:sharedUserId="android.uid.system"
+```
+	1. 首先需要拿到key（如果拿到了请看下一步）
+获取key需要拿到`platform.pk8`和`platform.x509.pem`,(一般在/build/target/product/security/目录里面)
+然后下载key生成工具（https://github.com/getfatday/keytool-importkeypair）  
+[keytool-importkeypair](./Android日常笔记六/keytool-importkeypair-master.zip)
+把上面文件放在一个文件夹运行命令
+```
+./keytool-importkeypair -k boemscan.jks -p boemscan（密码） -pk8 platform.pk8 -cert platform.x509.pem -alias boemscan
+```
+虽然我没有生成成功。但是我有key。
+[参考链接](https://blog.csdn.net/qq_33796069/article/details/104677349)
+	
+	2. 然后需要使用系统的key进行编译，设置key的方法：
+打开File-project Structure-Model，添加一个key
+![img14](./Android日常笔记六/img14.png)
+接着选择build Variants-signingConfig 设置刚刚配置的key，就可以了。
+![img15](./Android日常笔记六/img15.png)
+
+所有的配置都在App gradle里面看到
+```
+signingConfigs {
+        debug {
+        }
+        release {
+            storeFile file('C:\\Users\\LiaoHuan\\Desktop\\key.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+
+    }
+    
+...
+
+buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+
+    }
+  
+
+```
+不过只能使用debug进行调试，在as左下角Build Variants 窗口中选择release编译会报错，因为开了debuggable 为啥我也不晓得。
+
+
+
+###### 替换framework
+首先将jar放到app目录里面。（不要放到lib里面和eclipse一样）
+然后在app gradle添加
+```
+dependencies {
+compileOnly files('classes.jar')//对应文件名
+}
+```
+
+虽然我感觉这样就可以了，找到的资料里面说还有其他设置[参考链接](https://blog.csdn.net/yxdspirit/article/details/104503451/)
