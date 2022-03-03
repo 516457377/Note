@@ -566,7 +566,7 @@ getActivity().getWindow().getDecorView().setBackground(new BitmapDrawable(blurBi
 ---
 上面的方法只是检测网络是否开启了，真实网络还需要用ping的方式验证。基本上只要判断是否是0即可，若是0则网络真正可用。
 ```java
-    private int pingNetWord() {
+    private int pingNetWork() {
         Runtime runtime = Runtime.getRuntime();
         int ret = -1;
         try {
@@ -935,4 +935,78 @@ class MyWeb extends WebViewClient{
 
 ---
 
-#### 37. 
+#### 37. Android 屏幕开关屏监听
+
+ //添加广播过滤器确定接收什么广播
+```java
+   IntentFilter itFilter = new IntentFilter();
+   itFilter.addAction(Intent.ACTION_SCREEN_OFF);
+   itFilter.addAction(Intent.ACTION_SCREEN_ON);
+```
+
+---
+
+#### 38.String.split(\*) 一个或多个空格分割字符串
+
+比如下包含多个空格或者制表符的。
+
+```java
+	String str1 = "a b  c    d";
+```
+
+如果想把所有空格分割。应该使用*"\\s+"*
+```java
+
+        String[] arr4 = str.split("\\s+");
+```
+[参考](https://blog.csdn.net/xueqinmax/article/details/81748034)
+
+---
+
+#### 39. Java Scanner类输入常用方法解析
+
+**此处重点讲一下next()和nextLine()的区别**
+
+* next():只读取输入直到空格。它不能读两个由空格或符号隔开的单词。此外，next()在读取输入后将光标放在同一行中。(next()只读空格之前的数据,并且光标指向本行)
+
+* nextLine():读取输入，包括单词之间的空格和除回车以外的所有符号(即。它读到行尾)。读取输入后，nextLine()将光标定位在下一行。
+
+![常用方法1](./Android日常笔记六/img12.png)
+![常用方法2](./Android日常笔记六/img13.png)
+
+---
+
+#### 40. Android 关于MediaPlayer播放可能不完整的问题。
+
+最近遇到一个需求，需要MediaPlayer创建一个音频文件然后播报一次。
+```java
+MediaPlayer.create(getApplicationContext(), R.raw.ready).start();
+```
+在demo里面使用上述方法可以直接正常执行，但是我放到system里面，却发现只会放1秒不到就直接停了，我以为是在广播的原因，加了一个server，结果一样的。
+后来网上查找资料发现有人遇到类似的问题，解决办法就是不要用这种临时变量，创建一个全局Mediaplay变量赋值。测试了一下果然OK。
+```java
+private MediaPlayer mPlayer;
+
+...
+
+@Override
+public void onCreate() {
+    mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.ready);
+    mPlayer.start();
+}
+```
+[参考资料](https://www.cnblogs.com/SkyD/archive/2010/12/20/1910971.html)
+
+---
+
+#### 41.重启App。
+```java
+    private void restart(){
+        finish();
+
+        Intent intent = 	getPackageManager().getLaunchIntentForPackage(getPackageName());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+```

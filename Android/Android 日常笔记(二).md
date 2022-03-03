@@ -98,7 +98,7 @@ mWakeLock.acquire();
 需要添加权限：<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 ---
-#### 6. 返回桌面跳转
+#### 6. 返回桌面跳转/主页
 ```java
 	Intent intent = new Intent(Intent.ACTION_MAIN);
 

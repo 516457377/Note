@@ -175,3 +175,89 @@ https://www.jianshu.com/p/e40b949c535f
 #### 32. HTML无缓存。
 
 https://www.cnblogs.com/vivaxiaonan/p/9378345.html
+
+#### 33. AIDL通信
+https://www.jianshu.com/p/d1fac6ccee98
+https://blog.csdn.net/u010672559/article/details/81779034
+
+#### 34. Socket 服务端、客户端通信。
+https://www.jianshu.com/p/089fb79e308b
+
+#### 35. 设置屏幕亮度，并且监听屏幕亮度变化
+https://blog.csdn.net/jifashihan/article/details/102665816
+
+#### 36. android 16进制/10进制/2进制转换
+https://blog.csdn.net/andylao62/article/details/18704687
+
+#### 37. Android 7.0广播需要权限
+https://blog.csdn.net/u011043551/article/details/68962708?depth_1-
+https://blog.csdn.net/qq_23327993/article/details/98945130
+
+### 38. uri.getQueryParameter("key")会把加号（ + ）解析成空格（ " " ）
+
+https://blog.csdn.net/zhaoidong/article/details/47335523?spm=1000.2123.3001.4430
+uri.getQueryParameter("key")会把加号（ + ）解析成空格（ " " ）
+
+API上的描述是：Prior to Ice Cream Sandwich, this decoded the '+' character as '+' rather than ' '
+
+解法：
+
+在把字符串转为Uri前（Uri uri = Uri.parse(string); ）将字符串加号（ + ）转译为加号（ %2B ）；
+
+即string.replace("+","%2B");否则只能后面对空格的特征做处理了。
+
+### 39. Android5.0 Settings各个子模块跳转和布局实现
+https://blog.csdn.net/wzy_1988/article/details/50556113
+
+### 40. Android Audio 音频输出通道切换
+https://www.jianshu.com/p/e7eb04ab4485
+
+### 41. Android多媒体之认识声音、录音与播放(PCM)
+https://cloud.tencent.com/developer/article/1381394
+
+### 42. Soket通讯
+
+### 43.ViewPager 禁止滑动。
+
+### 44.
+https://blog.csdn.net/wenzhi20102321/article/details/54017417
+
+### 45. https://www.jianshu.com/p/f3fb7884d31c
+
+### 46. https://www.jianshu.com/p/d69c0122d31e
+https://blog.csdn.net/inwhites/article/details/81917086
+
+### 47. android 绘图时抗锯齿方法两种
+https://blog.csdn.net/donggeAndroid/article/details/39008175
+
+### 48. Android studio混淆第三方jar包时报错
+https://blog.csdn.net/androidzmm/article/details/79746151
+
+### 49. Android绘制颜色渐变图形
+https://www.jianshu.com/p/d6d189e8d80b
+
+### 50. find 如何忽略find命令时“permission denied”错误
+https://blog.csdn.net/KingJin_CSDN_/article/details/95944680
+http://www.51gjie.com/linux/1023.html
+
+### 51. Byte和Bit之间的转换
+https://blog.csdn.net/android_2015/article/details/42143803
+
+### 52. android保留一位小数,Android中关于保留小数点位数的处理
+https://blog.csdn.net/weixin_35968185/article/details/117588424
+
+### 53. Android自定义控件之自定义组合控件
+https://www.cnblogs.com/whoislcj/p/5714760.html
+
+### 54. Android音量调节
+https://www.jianshu.com/p/a5f013e0dc3e
+
+
+
+### 55. https://blog.csdn.net/Naide_S/article/details/80091191
+
+### 56. https://www.jianshu.com/p/ca0e4523332a
+
+### 57. https://blog.csdn.net/guolin_blog/category_9262963.html
+
+### 58. https://blog.csdn.net/sunsteam/article/details/62891692
