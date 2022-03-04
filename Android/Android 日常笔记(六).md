@@ -1011,7 +1011,7 @@ public void onCreate() {
     }
 ```
 
-
+---
 
 #### 42. Android Studio 如何编译系统软件以及替换framework
 
@@ -1020,10 +1020,11 @@ public void onCreate() {
 android:sharedUserId="android.uid.system"
 ```
 	1. 首先需要拿到key（如果拿到了请看下一步）
-获取key需要拿到`platform.pk8`和`platform.x509.pem`,(一般在/build/target/product/security/目录里面)
-然后下载key生成工具（https://github.com/getfatday/keytool-importkeypair）  
-[keytool-importkeypair](./Android日常笔记六/keytool-importkeypair-master.zip)
+获取key需要拿到`platform.pk8`和`platform.x509.pem`(一般在/build/target/product/security/目录里面)
+然后下载key生成工具（https://github.com/getfatday/keytool-importkeypair）  |
+[keytool-importkeypair点击下载](https://raw.githubusercontent.com/516457377/Note/master/Android/Android%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0%E5%85%AD/keytool-importkeypair-master.zip)
 把上面文件放在一个文件夹运行命令
+
 ```
 ./keytool-importkeypair -k boemscan.jks -p boemscan（密码） -pk8 platform.pk8 -cert platform.x509.pem -alias boemscan
 ```
@@ -1080,3 +1081,45 @@ compileOnly files('classes.jar')//对应文件名
 ```
 
 虽然我感觉这样就可以了，找到的资料里面说还有其他设置[参考链接](https://blog.csdn.net/yxdspirit/article/details/104503451/)
+
+---
+
+#### 43. As Gradle版本号和Gradle插件版本号对应表
+如果版本不对应就会编译报错
+```
+“Minimum supported Gradle version is XXX. Current version is XXX.”
+```
+对应版本图
+![img15](./Android日常笔记六/img16.png)
+
+设置方法一：
+打开`File-project Structure-Project`就可以直接设置Gradle版本和插件版本
+
+方法二：
+在Project-gradle文件里面
+```
+dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+```
+设置对应的gradle插件版本号
+在gradle-wrapper.properties
+
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-5.1.1-all.zip
+```
+设置对应的gradle版本。
+[参考链接](https://blog.csdn.net/weixin_43496063/article/details/109727479)
+
+---
+
+#### 44.
+
+---
+
+#### 45.
+
+---
